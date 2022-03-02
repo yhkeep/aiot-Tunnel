@@ -1,0 +1,30 @@
+    .data_table_top{
+        margin-bottom:20px;
+        .data_table_top_left{
+          float:left;
+          .ivu-upload{
+            display: inline-block;
+          }
+          a,button,.ivu-upload{
+            margin-right:5px;
+          }
+        }
+
+        .data_table_top_center{
+          float:right;
+          margin-right:20px;
+        }
+
+        .data_table_top_right{
+          float:right;
+        }
+    }
+
+    // .pagination_wrap{
+    //     text-align: center;
+    // }
+
+    .data_table_pagination_wrap{
+      text-align:center;margin-top:20px
+    }
+

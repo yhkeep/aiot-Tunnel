@@ -1,0 +1,1 @@
+2020-06-18 14:00:13 [org.eclipse.paho.client.mqttv3.internal.ClientState logToJsr47 210]-[ERROR] client1: Timed out as no write activity, keepAlive=15,000 lastOutboundActivity=1,592,454,803,685 lastInboundActivity=1,592,454,803,685 time=1,592,460,013,212 lastPing=1,592,454,803,685

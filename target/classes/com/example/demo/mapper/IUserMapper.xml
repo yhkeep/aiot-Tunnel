@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.IUserMapper"> 
+        <!-- 查询用户-->
+        <select id="queryUser" resultType="com.example.demo.domain.User" parameterType="String">
+        	SELECT
+				u.*
+			FROM
+				user u
+			where u.address = #{address}
+        </select>  
+        
+        <!-- 登录用户查询-->
+        <select id="serachUserByPhone" resultType="com.example.demo.domain.User">
+        	SELECT
+				u.*
+			FROM
+				user u
+			WHERE
+				u.username = #{username}
+        </select>  
+        <!-- TODO 03-18 修改普通权限管理-->
+        <!-- <select id="searchRole" parameterType="com.example.demo.domain.User"  resultType="java.util.Map">
+        	SELECT u.username,u.`password`,u.role,u.address,ul.path 
+        	from user u
+        	 left JOIN userrole ul on u.role = ul.role 
+        	 WHERE u.address = ul.address 
+        	 and u.username = #{username}
+        	 and u.password = #{password}
+        </select> -->  
+        <!-- 查询账号对应权限以及部门 -->
+         <select id="searchRole" parameterType="com.example.demo.domain.User"  resultType="java.util.Map">
+        	 SELECT u.username,u.`password`,u.role,u.address,u.rolepath,u.departmentroom
+        	from user u
+        	 WHERE 
+        	 u.username = #{username}
+        	 and  u.password = #{password}
+			 and u.address = #{address}
+        </select>
+        
+        
+        <!-- 登录-->
+        <select id="loginUser" resultType="com.example.demo.domain.User" parameterType="com.example.demo.domain.User">
+        	SELECT
+				u.*
+			FROM
+				user u
+			WHERE
+				u.username = #{username} and u.password = #{password}
+        </select>  
+    <!-- 添加用户 -->
+    <insert id="addUser" parameterType="com.example.demo.domain.User">
+    	INSERT INTO user (username,password,phone,departmentroom,role,address,locDept,authority,rolepath)
+    	VALUES (#{username},#{password}, #{phone}, #{departmentroom},#{role},#{address},#{locDept},#{authority},#{rolepath});
+    </insert>
+    
+    <!-- 批量删除资产 -->
+    <delete id="delUser">
+        DELETE FROM user
+		WHERE username in 
+        <foreach collection="username" item="username" open="(" separator="," close=")">
+            #{username}
+        </foreach>
+    </delete>
+    
+    <!-- 更新用户信息兼容性强，但需要,默认申请科室，防止sql异常 -->
+    <update id="update" parameterType="com.example.demo.domain.User">
+        UPDATE user 
+        <set>
+        	username = #{username},
+        	<!-- 部门不为null的情况下，也可进行申请科室更新 -->
+	        <!-- <if test="locDept != null and locDept !=''"> -->
+	        <if test="departmentroom != null and departmentroom !=''">
+	             locDept = #{locDept},
+	        </if>
+	        <!-- 更新部门 -->
+	        <if test="departmentroom != null and departmentroom !=''">
+	             departmentroom = #{departmentroom},
+	        </if>
+	        <if test="phone != null and phone !=''">
+	             phone = #{phone},
+	        </if>
+	        <if test="role != null and role !=''">
+	             role = #{role},
+	        </if>
+	        
+	        <if test="password != null and password !=''">
+	             password = #{password},
+	        </if>
+	        <if test="isShowMac != null and isShowMac !=''">
+	             isShowMac = #{isShowMac},
+	        </if>
+	        <if test="isShowBuyDate != null and isShowBuyDate !=''">
+	             isShowBuyDate = #{isShowBuyDate},
+	        </if>
+	        <if test="isShowMoney != null and isShowMoney !=''">
+	             isShowMoney = #{isShowMoney},
+	        </if>
+	        <if test="isShowElectric != null and isShowElectric !=''">
+	             isShowElectric = #{isShowElectric},
+	        </if>
+	        <if test="newpassword != null and newpassword !=''">
+	             newpassword = #{newpassword},
+	        </if>
+	        <!-- 记忆部门 -->
+	        <if test="memorydepart != null and memorydepart !=''">
+	             memorydepart = #{memorydepart},
+	        </if>
+	        <!-- 记忆科室 -->
+	        <if test="memorylocDept != null and memorylocDept !=''">
+	             memorylocDept = #{memorylocDept},
+	        </if>
+	        <!-- 记忆一级分类 -->
+	        <if test="memoryoneclassify != null and memoryoneclassify !=''">
+	             memoryoneclassify = #{memoryoneclassify},
+	        </if>
+	        <!-- 记忆二级分类 -->
+	        <if test="memorysecondclassify != null and memorysecondclassify !=''">
+	             memorysecondclassify = #{memorysecondclassify},
+	        </if>
+	        <!-- 记忆三级分类 -->
+	        <if test="memorythreeclassify != null and memorythreeclassify !=''">
+	             memorythreeclassify = #{memorythreeclassify},
+	        </if>
+	        <!-- 记忆四级分类 -->
+	        <if test="memoryfourclassify != null and memoryfourclassify !=''">
+	             memoryfourclassify = #{memoryfourclassify},
+	        </if>
+	        <!-- 分类展示 -->
+	
+	        <if test="isShowSpecification != null and isShowSpecification !=''">
+	             isShowSpecification = #{isShowSpecification},
+	        </if>
+	        <if test="isShowType != null and isShowType !=''">
+	             isShowType = #{isShowType},
+	        </if>
+	        <if test="isShowLocation != null and isShowLocation !=''">
+	             isShowLocation = #{isShowLocation},
+	        </if>
+	        <if test="isShowPlaceoforigin != null and isShowPlaceoforigin !=''">
+	             isShowPlaceoforigin = #{isShowPlaceoforigin},
+	        </if>
+	        <if test="isShowBrand != null and isShowBrand !=''">
+	             isShowBrand = #{isShowBrand},
+	        </if>
+	        <if test="isShowDepartmentcode != null and isShowDepartmentcode !=''">
+	             isShowDepartmentcode = #{isShowDepartmentcode},
+	        </if>
+	        <if test="isShowDepartmentroom != null and isShowDepartmentroom !=''">
+	             isShowDepartmentroom = #{isShowDepartmentroom},
+	        </if>
+	        <if test="isShowHomeofficenumber != null and isShowHomeofficenumber !=''">
+	             isShowHomeofficenumber = #{isShowHomeofficenumber},
+	        </if>
+	        <if test="isShowHomeofficename != null and isShowHomeofficename !=''">
+	             isShowHomeofficename = #{isShowHomeofficename},
+	        </if>
+	        <if test="isShowIsentrance != null and isShowIsentrance !=''">
+	             isShowIsentrance = #{isShowIsentrance},
+	        </if>
+	        <if test="isShowSuppliername != null and isShowSuppliername !=''">
+	             isShowSuppliername = #{isShowSuppliername},
+	        </if>
+	        <if test="isShowGeneratebusinessname != null and isShowGeneratebusinessname !=''">
+	             isShowGeneratebusinessname = #{isShowGeneratebusinessname},
+	        </if>
+	        <if test="isShowApplyoddnumbers != null and isShowApplyoddnumbers !=''">
+	             isShowApplyoddnumbers = #{isShowApplyoddnumbers},
+	        </if>
+	        <if test="isShowLocDept != null and isShowLocDept !=''">
+	             isShowLocDept = #{isShowLocDept},
+	        </if>
+	        <if test="isShowStatus != null and isShowStatus !=''">
+	             isShowStatus = #{isShowStatus},
+	        </if>
+	        
+	        <!-- 权限路径和页面模块显示修改 -->
+	        <if test="authority != null and authority !=''">
+	             authority = #{authority},
+	        </if>
+	        <if test="rolepath != null and rolepath !=''">
+	             rolepath = #{rolepath}
+	        </if>
+	        
+	        
+	        
+        </set>
+        WHERE username = #{username}
+    </update>
+    
+    
+</mapper>  

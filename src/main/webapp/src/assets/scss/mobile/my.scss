@@ -1,0 +1,48 @@
+    @function px2rem($n) {
+        @return $n / (1000 / 16)+rem;
+    }
+
+    #mobile_my_wrap{
+        height:100%;
+    }
+  
+    .user_box{
+        text-align: center;
+    }
+    .user_box>img{
+        width:px2rem(140);
+        height:px2rem(140);
+        border-radius: 50%;
+    }
+
+    .user_box>h2{
+        color:#fff;
+    }
+
+    .user_wrap{
+        flex:0 0 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background-color: #1989fa;
+        background-image: linear-gradient(to top, #4481eb 0%, #1989fa 100%);
+    }
+
+    .menu_wrap{
+        flex:0 0 50%;
+    }
+
+    .logout_wrap{
+        flex:1;
+    }
+
+    .logout_button{
+        width:100%;
+    }
+
+    .role_tag{
+        margin:5px;
+    }
+
+
+

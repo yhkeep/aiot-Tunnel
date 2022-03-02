@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.IMaintainhistoryMapper"> 
+    <!-- 插入维修 -->
+    <insert id="insertMaintainHistory" parameterType="com.example.demo.domain.Maintainhistory">
+        INSERT INTO maintainhistory (applaydepartment,handoverdepartment,applaypeople,successorpeople,handlingPeople,buttingPeople
+        ,handoverimage,handovertime,estimatedtime,assetstatustype,remark,maintainhistoryonlyCode)
+         VALUES (#{applaydepartment},#{handoverdepartment},#{applaypeople},#{successorpeople},#{handlingPeople},#{buttingPeople}
+         ,#{handoverimage},#{handovertime},#{estimatedtime},#{assetstatustype},#{remark},#{maintainhistoryonlyCode})
+    </insert>
+    
+    <select id="queryUnionMaintainHistory" resultType="java.util.Map" parameterType="String">
+    	SELECT * from lendouthistory l WHERE ( l.maintainhistoryonlyCode = #{maintainhistoryonlyCode} and l.handovertime &gt;= #{timeStart} and l.handovertime &lt;= #{timeEnd}) 
+    	UNION 
+		SELECT * from maintainhistory m WHERE (m.maintainhistoryonlyCode = #{maintainhistoryonlyCode} and m.handovertime &gt;= #{timeStart} and m.handovertime &lt;= #{timeEnd})
+    </select>
+</mapper>  

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Built-By: yanghan
+Build-Jdk: 11.0.12
+Implementation-Title: huaxi Maven Webapp
+Implementation-Version: 0.0.1
+Implementation-Vendor-Id: com.yanghan.ssm
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://maven.apache.org
+Main-Class: com.example.demo.StartUpApplication
+Created-By: Maven Integration for Eclipse
+

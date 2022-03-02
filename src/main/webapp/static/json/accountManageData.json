@@ -1,0 +1,18 @@
+[
+    {
+        "id": 19,
+        "account": "123456789",
+        "username": "管理员",
+        "phone": "123456789",
+        "role": "admin",
+        "department": "办公室"
+    },
+    {
+        "id": 22,
+        "account": "987654321",
+        "username": "操作员",
+        "phone": "987654321",
+        "role": "operator",
+        "department": "办公室"
+    }
+]

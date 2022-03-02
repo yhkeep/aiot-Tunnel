@@ -1,0 +1,66 @@
+.title{
+    padding: 20px;
+    text-align: center;
+}
+.sign-canvas{
+    display: block;
+    margin: 20px auto;
+}
+.view-image{
+    display: block;
+    margin: 20px auto;
+}
+
+.sign-btns{
+    display: flex;
+    justify-content: space-between;
+    #clear,
+    #clear1,
+    #save {
+        display: inline-block;
+        padding: 5px 10px;
+        width: 76px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #eee;
+        background: #e1e1e1;
+        border-radius: 10px;
+        text-align: center;
+        margin: 20px auto;
+        cursor: pointer;
+    }
+}
+
+.form_fill_item{
+    margin-bottom:20px;
+    h3{
+        margin-bottom:5px;
+    }
+
+    .form_fill_bottom{
+        .form_fill_left{
+            float:left;
+        }
+        .form_fill_right{
+            float:right
+        }
+    }
+}
+
+ .scale_img_wrap{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(45,45,45,.8);
+    z-index:8888;
+
+    img{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        background-color:#fff;
+    }
+}

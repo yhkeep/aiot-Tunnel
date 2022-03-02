@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.IGatewayMapper"> 
+        <!-- 查询网关 -->
+        <select id="queryGateway" resultType="com.example.demo.domain.Gateway" parameterType="String">
+        	SELECT
+				g.*
+			FROM
+				gateway g
+			where g.gatewayfree = #{address}
+        </select>  
+        
+        <select id="initGateway" resultType="com.example.demo.domain.Gateway" >
+        	SELECT
+				g.*
+			FROM
+				gateway g
+        </select>  
+    
+    	<update id="updateGateway" parameterType="com.example.demo.domain.Gateway">
+     		UPDATE gateway 
+     		<set>
+     			 location=#{location},
+     			 department=#{department},
+     			 floor=#{floor},
+     			 mapx =#{mapx},
+     			 mapy =#{mapy},
+     			 gatewaymac = #{gatewaymac},
+     			 ipaddress = #{ipaddress},
+     			 roomnumber = #{roomnumber}
+     		</set>
+     		
+        	WHERE gatewaymac=#{gatewaymac}
+        	
+        </update>
+        
+        <delete id="deleteGateway">
+	        DELETE FROM gateway
+			WHERE gatewaymac in 
+	        <foreach collection="list" item="item" open="(" separator="," close=")">
+	            #{item.gatewaymac}
+        	</foreach>
+        	
+    	</delete>
+    	<!-- 插入 -->
+    	<insert id="insertGateway" parameterType="com.example.demo.domain.Gateway">
+	    	INSERT INTO gateway 
+	    	(type, gatewaymac, gatewayfree,gatewayload,location,department,floor,
+	    	ipaddress,mapx,mapy,cadMapRoomName,updatetime,roomnumber) 
+	    	VALUES (#{type}, #{gatewaymac}, #{gatewayfree},
+	    	#{gatewayload},#{location},#{department},#{floor},#{ipaddress},#{mapx},#{mapy},#{cadMapRoomName},#{updatetime},#{roomnumber});
+   		 </insert>
+        
+</mapper>  

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.IReceivedMapper"> 
+        <!-- 查询资产  RECEIVED中只存在资产唯一对应mac-->
+        <select id="querymap" resultType="java.util.Map">
+        	<!-- SELECT r.*,a.* from received r left join asset a on a.mac=r.mac WHERE a.mac in (select r.mac from received r)  ; fenhao-->
+        	SELECT r.*,a.* from received r left join asset a on a.mac=r.mac WHERE a.mac in (select r.mac from received r)
+        </select>  
+        <!-- 210526望海临时接口请求 -->
+        <select id="queryIbeacon" resultType="com.example.demo.domain.Asset">
+        	SELECT 
+        	a.assetID, a.assetName, a.department,a.amount,a.unit,a.status,a.remark,
+    		a.type,a.brand,a.generalName,a.applyDept,a.mac,a.electric,a.buyDate,a.money,
+    		a.oneclassify,a.secondclassify,a.threeclassify,a.fourclassify,a.specification,a.placeoforigin,
+    		a.departmentcode,a.departmentroom,a.homeofficenumber,a.homeofficename,a.isentrance,a.suppliername,
+    		a.generatebusinessname,a.applyoddnumbers,a.locDept,a.location,a.recorder,a.academy,a.architecture
+        	from received r left join asset a on a.mac=r.mac WHERE a.mac in (select r.mac from received r)
+        </select>  
+        <!-- 管理员查看全部数据 -->
+        <select id="querymapByUpdateTime" resultType="java.util.Map" parameterType="String">
+        	SELECT r.*,a.* from received r left join asset a on a.mac=r.mac WHERE a.mac in (select r.mac from received r) and updatetime &gt;= #{timeEnd};
+        </select>
+        <!-- 授权所在部门动态标签数据 -->
+        <select id="queryAssetByUpdateTime" resultType="java.util.Map" parameterType="String">
+        	SELECT r.*,a.* from received r left join asset a on a.mac=r.mac WHERE a.mac in (select r.mac from received r) and updatetime &gt;= #{timeEnd} 
+        	<if test="department!= null and department!=''">
+	            	and departmentroom in
+			      <foreach collection="department.split(',')" item="item" index = "index" open="(" separator="," close=")">
+			        	#{item}
+        		  </foreach>
+       		</if>
+        </select>
+        
+    	<select id="queryRG" resultType="java.util.Map" parameterType="String">
+        	<!--
+        	TODO 0828 sql索引添加，in被替代EXISTS
+        	 SELECT g.* from gateway g WHERE g.gatewaymac in (SELECT t.gatewaymac from (SELECT r.gatewaymac  from received r WHERE mac = #{mac} ORDER BY updatetime DESC LIMIT 1) as t) -->
+        	
+        	
+        	SELECT g.location,g.floor,g.cadMapRoomName,g.updatetime,g.department from gateway g WHERE  EXISTS (SELECT t.gatewaymac from (SELECT r.gatewaymac  from received r WHERE mac = #{mac} ORDER BY updatetime DESC LIMIT 1) as t WHERE g.gatewaymac = t.gatewaymac)
+        </select>  
+    	
+</mapper>  

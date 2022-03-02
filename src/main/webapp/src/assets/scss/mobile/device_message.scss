@@ -1,0 +1,142 @@
+@import './common/default.scss';
+
+  #mobile_device_message_wrap{
+    // padding:10px 16px;
+    .mobile_device_message_header{
+      position: relative;
+      height:54px;
+      line-height: 34px;
+      padding:10px 12px;
+      text-align:center;
+      &.show{
+          width:100%;
+          position: fixed;
+          left:0;
+          background-color: #fff;
+          z-index:999;
+          animation:searchAnimate .3s;
+      }
+      .mobile_device_message_title{
+        p{
+            color: #323233;
+            font-weight: 500;
+            font-size: 16px;
+        }
+      }
+      .mobile_device_header_tools{
+        position: absolute;
+        top:0;
+        right:0px;
+        width:40px;
+        height:54px;
+        line-height: 52px;
+        
+        i{
+          vertical-align: middle;
+        }
+      }
+    }
+    .device_message_box{
+        padding:0px 16px;
+        .device_message_notice{
+          position: fixed;
+          top:40%;
+          left:50%;
+          transform:translate(-50%,-50%);
+        }
+
+        .device_message_ul{
+         
+            .device_message_item{
+              
+              span{
+                  font-size:px2rem(36);
+                  &.lose{
+                      display:inline-block;background-color:#fbe2f2;border:1px solid #e46cbb;border-radius:3px;padding:2px 5px;font-size:px2rem(30);color:#e46cbb;margin-left:20px;
+                  }
+
+                  &.beyond{
+                      display:inline-block;background-color:#eae0f9;border:1px solid #9a66e4;border-radius:3px;padding:2px 5px;font-size:px2rem(30);color:#9a66e4;margin-left:20px;
+                  }
+              }
+
+              
+             
+              margin-bottom:px2rem(30);
+              box-sizing: border-box;
+              border-radius: 5px;
+              padding:5px;
+              background-color: #f7f8fa;
+              div{
+                // text-indent: 15px;
+                white-space: nowrap;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+                p{
+                  font-size:px2rem(30);
+                  color: #727272;
+                  
+                }
+              }
+            }
+        }
+    }
+  }
+
+  .device_message_color_1{
+      color:#e46cbb;
+  }
+  .device_message_bg_color_1{
+      background-color:#e46cbb;
+  }
+  .device_message_color_2{
+      color:#9a66e4;
+  }
+  .device_message_bg_color_2{
+      background-color:#9a66e4;
+  }
+  .device_message_num_box{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:#fff;
+    z-index:999;
+    padding:12px 16px;
+    margin-bottom:0;
+    .device_message_num_item{
+        display: flex;
+        flex:45% 0 0;
+        padding:5px 0;
+        color:#fff;
+        align-items: center;
+        justify-content: center;
+        border-radius:5px;
+        &:nth-of-type(1){
+            background-color: #e46cbb;
+        };
+        &:nth-of-type(2){
+            background-color: #9a66e4;
+        };
+    }
+  }
+
+  .mobile_search_wrap{
+      height:54px
+  }
+
+  @keyframes searchAnimate
+  {
+      from {
+          top:-54px;
+      }
+      to {
+          top:0;
+      }
+  }
+
+
+
+ 
+
+  

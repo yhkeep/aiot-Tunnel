@@ -1,0 +1,55 @@
+    @function px2rem($n) {
+        @return $n / (1000 / 16)+rem;
+    }
+
+    .clearfix::after{
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+    }
+    .clearfix{
+        zoom:1;
+    }
+
+    .custom_flex_column_wrap{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .custom_flex_row_wrap{
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+
+    span{
+        // font-size:px2rem(36);
+    }
+
+    p{
+      font-size:px2rem(36);   
+    }
+
+    h2{
+        font-size:px2rem(60); 
+    }
+
+    h3{
+        font-size:px2rem(50); 
+    }
+
+    h4{
+        // font-size:px2rem(40); 
+    }
+
+    i{
+        font-size:px2rem(60);
+    }
+
+  
+   
+

@@ -1,0 +1,18 @@
+{
+    "id": 13479,
+    "no": "190009990569",
+    "name": "HP打印机",
+    "unit": "台",
+    "buyTime": "2016-10-11",
+    "fee": 2000,
+    "depart": "办公室",
+    "remark": "",
+    "fstCat": "通用设备",
+    "secCat": "计算机设备及软件",
+    "thdCat": "打印设备",
+    "status": "在用",
+    "num": 1,
+    "image": "",
+    "oldRatio": 53,
+    "monthOldValue": 33.33
+}

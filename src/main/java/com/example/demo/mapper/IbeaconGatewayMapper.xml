@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <mapper namespace="com.example.demo.mapper.IbeaconGatewayMapper"> 
+    <!-- 定义基础字段查询 -->
+     	<!-- 接口查询一周历史记录 -->
+        <!-- <select id="queryWay" resultType="java.util.Map" parameterType="String">
+      
+        	SELECT
+				ib.mac,ib.gatewaymac,ib.maxRssiUpdateTime,ib.`timestamp`,a.AssetID,a.GeneralName,a.AssetName,a.Type,a.Brand,a.ApplyDept
+				,a.LocDept,a.Location,a.`Status`,a.electric,ib.rssi
+			FROM
+				ibeacongateway ib
+			LEFT JOIN asset a ON a.mac = ib.mac
+			<if test="startTime != null and endTime != null">
+			      where a.AssetID = #{AssetID} and timestamp &gt;= #{startTime} and timestamp &lt;= #{endTime} 
+			      错误的两位数rssi值未出现异常， ORDER BY rssi desc
+			</if>
+	
+        </select>  -->
+        
+         
+        <!-- 接口查询一天历史记录 -->
+        <select id="findDataByOneDay" resultType="java.util.Map" parameterType="String">
+        	SELECT
+				ib.mac,ib.gatewaymac,ib.maxRssiUpdateTime,ib.`timestamp`,a.AssetID,a.GeneralName,a.AssetName,a.Type,a.Brand,a.ApplyDept
+				,a.LocDept,a.Location,a.`Status`
+			FROM
+				ibeacongateway ib
+			LEFT JOIN asset a ON a.mac = ib.mac
+			<if test="startTime != null and endTime != null">
+			    where  timestamp &gt;= #{startTime} and timestamp &lt;= #{endTime}
+			</if>
+        </select>  
+        
+        
+        	<!-- 返回对应结果map值 ，因为映射关系所以需要一一对应,一般多层关联查询使用-->
+       	<resultMap id="BaseResultMap" type="com.example.demo.domain.IbeaconGateway" >
+			<result column="timestamp" property="timestamp" />
+			<result column="mac" property="mac" />
+			<result column="rssi" property="rssi" />
+			<result column="gatewaymac" property="gatewaymac" />
+		</resultMap>
+			<!-- 单位时间内当前mac最近网关 -->
+         <select id="findByTime" resultType="java.util.Map"> 
+        	select 
+        		timestamp,mac,rssi,gatewaymac
+        	 	from ibeacongateway
+			  <if test="startTime != null and endTime != null">
+			      where mac = #{mac} and timestamp &gt;= #{startTime} and timestamp &lt;= #{endTime}
+			  </if>
+        </select>  
+        <!-- 单位时间内进行数据更新 -->
+        <update id="update">  
+            update ibeacongateway
+        	<set>
+	            <if test="maxRssiUpdateTime != null">maxRssiUpdateTime=#{maxRssiUpdateTime},</if>
+	            <if test="rssi != null">rssi=#{rssi},</if>
+	            <if test="distance != null">distance=#{distance},</if>
+	            <if test="battery != null">battery=#{battery},</if>
+        	</set>
+        	where mac = #{mac} and  gatewaymac=#{gatewaymac}
+        </update>  
+        <!-- 更新最强网关数据 -->
+        <update id="updateRssiAndTime">  
+         update ibeacongateway 
+        	<set>
+	            <if test="maxRssiUpdateTime != null">maxRssiUpdateTime=#{maxRssiUpdateTime},</if>
+	            <if test="rssi != null">rssi=#{rssi},</if>
+	            <if test="distance != null">distance=#{distance},</if>
+        	</set>
+        	where mac = #{mac} and  gatewaymac=#{gatewaymac} and maxRssiUpdateTime=#{oldmaxRssiUpdateTime}
+        </update>  
+        
+        
+        <!-- 保存数据 -->
+        <insert id="save">  
+            insert into ibeacongateway(timestamp, type, mac, bleName,rssi,battery,gatewaymac,distance,maxRssiUpdateTime)  
+            values(#{timestamp}, #{type}, #{mac}, #{bleName},#{rssi},#{battery},#{gatewaymac},#{distance},#{maxRssiUpdateTime})  
+        </insert> 
+        
+        
+        
+        	<!--最后一次网关所在位置信息并且信号最强位置所在.考虑了多个网关并存的情况，必须的暂不能使用其他sql替代-->
+         <select id="findGatewayMacByMac" resultType="java.util.Map"> 
+         
+         	select maxRssiUpdateTime,mac,gatewaymac,rssi from ibeacongateway
+         	<if test="currnetTime != null and startTime != null">
+			      where  mac = #{mac} and maxRssiUpdateTime &gt;= #{startTime} and maxRssiUpdateTime &lt;= #{currnetTime}
+			</if>
+			GROUP BY maxRssiUpdateTime,mac,gatewaymac,rssi ORDER BY rssi DESC
+         	 
+         	
+        </select>  
+        
+         <select id="findMacBytime" resultType="java.util.Map"> 
+         
+         	select maxRssiUpdateTime,mac,gatewaymac,rssi from ibeacongateway
+         	<if test="currentTime != null and endTime != null">
+			      where  mac = #{mac} and gatewaymac = #{gatewaymac} and maxRssiUpdateTime &gt;= #{endTime} and maxRssiUpdateTime &lt;= #{currentTime}
+			</if>
+			
+        </select>  
+        <!-- 查找所有与mac对应的网关信息   TODO UPDATE 0921索引建立mac唯一-->
+        <!--  <select id="findGatewayByMac" resultType="java.util.Map"> 
+         	select * from ibeacongateway  where  mac = #{mac} and gatewaymac = #{gatewaymac}
+         	SELECT count(*) from received  where  mac = #{mac}
+        </select> -->  
+        
+        <!-- TODO0923-15:07  
+        <select id="findGatewayByMac" resultType="java.util.Map"> 
+         	SELECT count(*),gatewaymac from received  where  mac = #{mac}
+        </select> -->  
+        
+         <select id="findGatewayByMac" resultType="java.util.Map"> 
+         	SELECT count(*),gatewaymac,rssi from received  where  mac = #{mac}
+        </select>  
+     
+        <!-- ib中返回标签对应最新网关，断线重连的情况下使用-->
+         <select id="findMaxNewGateway" resultType="java.util.Map"> 
+         
+         	 SELECT * from ibeacongateway  
+         	 <if test="currentTime != null and startTime != null">
+			      WHERE mac = #{mac} and maxRssiUpdateTime &gt;= #{startTime} and maxRssiUpdateTime &lt;= #{currentTime}
+			</if>
+         	 
+         	 <!-- ORDER BY maxRssiUpdateTime DESC LIMIT 1; -->
+         	  ORDER BY rssi ASC LIMIT 1;
+         	
+        </select>  
+        
+        
+        	<!-- 查询received标签是否存在 -->
+        <select id="searchMacByMac" resultType="java.util.Map"> 
+        	select 
+        		gatewaymac,mac,updatetime,rssi
+        	 	from received
+			  <if test="currnetTime != null and startTime != null">
+			      where  mac = #{mac} and updatetime &gt;= #{startTime} and updatetime &lt;= #{currnetTime}
+			  </if>
+        </select> 
+<!--         <select id="searchMacByMac" resultType="java.util.Map"> 
+        	select 
+        		gatewaymac,mac,updatetime
+        	 	from received
+			  <if test="currnetTime != null and startTime != null">
+			      where gatewaymac = #{gatewaymac} and mac = #{mac} and updatetime &gt;= #{startTime} and updatetime &lt;= #{currnetTime}
+			  </if>
+        </select>  -->
+        
+         <!-- 监听数据保存 -->
+        <insert id="persistence">  
+            insert into received(mac,gatewaymac,createtime,rssi)  
+            values(#{mac}, #{gatewaymac}, #{createtime},#{rssi})  
+        </insert> 
+        <!-- 监听数据更新 --><!-- 空值判断不可更改，IbeaconGatewayServiceImpl有使用 -->
+        <update id="updateRecevied">  
+            update received
+        	<set>
+	            <if test="mac != null">mac=#{mac},</if>
+	            <if test="gatewaymac != null and gatewaymac !='' ">gatewaymac=#{gatewaymac},</if>
+<!-- 	            <if test="gatewaymac != null">gatewaymac=#{gatewaymac},</if> -->
+	            <if test="updatetime != null">updatetime=#{updatetime},</if>
+	            <if test="rssi != null and rssi !='' ">rssi=#{rssi},</if>
+        	</set>
+        	where mac = #{mac} 
+        </update>  
+        <!-- 查询一般监听数据 -->
+         <select id="findRecevied" resultType="java.util.Map"> 
+        	 SELECT mac,gatewaymac,rssi,updatetime
+        	  FROM received where mac = #{mac}  ORDER BY mac ASC LIMIT 1 ;
+        </select>  
+        
+        
+        <!-- gateway更新  当前时间减去1分钟后，表中时间小于它，就进行更新-->
+      
+        
+        <update id="updateGatewayMac" parameterType="String">  
+            update gateway
+        	<set>
+	            <if test="currenttime != null">updatetime=#{currenttime},</if>
+	            <if test="gateway != null">gateway=#{gateway}</if>
+        	</set>
+        	where gatewaymac = #{gatewaymac} 
+        </update>  
+        
+        
+        <!-- 一分钟内未更新，标签丢失-->
+        <!-- 查询一般监听数据 -->
+         <select id="findmissing" resultType="java.util.Map" parameterType="String"> 
+        	 SELECT a.Mac,a.AssetID from asset a WHERE a.Mac not in(SELECT r.mac FROM received r WHERE r.updatetime &gt;= #{currentime});
+        </select>  
+        
+        <select id="findGateway" resultType="java.util.Map" > 
+        	 SELECT g.gatewaymac from gateway g where g.gateway is null;
+        </select>  
+        <!-- 五分钟内未更新网关丢失 -->
+        <select id="findGatewayByTime" resultType="java.util.Map" parameterType="String"> 
+        	<if test="dateTime != null">
+        	 	SELECT g.gatewaymac from gateway g where g.gateway is null or updatetime &lt;= #{dateTime};
+        	</if>
+        </select>  
+        
+        <select id="searchLastData" resultType="java.util.Map" > 
+        	SELECT a.AssetID,a.GeneralName,a.AssetName,a.Type,a.Brand,a.ApplyDept,a.LocDept,a.Location,a.`Status`,iba.gatewaymac,iba.`timestamp`,iba.maxRssiUpdateTime from asset a
+        	 	LEFT JOIN 
+					(SELECT ia.`timestamp`,ia.mac,ia.gatewaymac,ia.maxRssiUpdateTime from ibeacongateway ia  WHERE (ia.mac,ia.`timestamp`) 
+						in (SELECT ib.mac,max(ib.`timestamp`) from ibeacongateway ib WHERE ib.maxRssiUpdateTime is not null GROUP BY ib.mac ) 
+					and ia.maxRssiUpdateTime is not null ) 
+					as iba
+			on a.Mac = iba.mac;
+        </select>  
+        
+        
+        
+</mapper>  

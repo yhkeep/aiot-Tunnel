@@ -1,0 +1,24 @@
+    .data_table_top{
+      margin-bottom:20px;
+    }
+
+    .data_table_top_left{
+      float:left;
+    }
+
+    .data_table_top_right{
+      float:right;
+    }
+
+    .pagination_wrap{
+      text-align: center;
+    }
+
+    .current_query_box{
+      display: inline-block;
+      margin-left:20px;
+    }
+    .current_query_box>h3{
+      display: inline-block
+    }
+

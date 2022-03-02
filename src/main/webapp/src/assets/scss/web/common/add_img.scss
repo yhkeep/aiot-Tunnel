@@ -1,0 +1,113 @@
+
+
+.img_block_wrap{
+    float:left;
+    margin:0 30px 30px 0;
+    text-align: center;
+    .img_block{
+        position: relative;
+        // float:left;
+        width:120px;
+        height:120px;
+        
+        background-color:#f5f7f9;
+        overflow:hidden;
+        
+        // border:1px solid #eee;
+       img{
+           max-width:100%;
+           max-height:100%;
+       }
+
+       &:hover{
+           .img_block_tools{
+               bottom:0px;
+           }
+       }
+
+       .img_block_tools{
+           position: absolute;
+           bottom:-40px;
+           left:0;
+           right:0;
+           height:40px;
+           line-height: 40px;
+           font-size:20px;
+           transition: bottom .3s ease;
+           
+           background-color: rgba(45, 45, 45,.7);
+           .img_block_tools_left,.img_block_tools_right{
+                float:left;
+                width:50%;
+                text-align: center;
+                color:#fff;
+                i{
+                    cursor: pointer;
+                    &:hover{
+                        color:rgb(93, 179, 250);
+                    }
+                }
+           }
+          
+       }
+    }
+
+    p{
+        margin-top:10px;
+    }
+}
+
+    .add_img_wrap{
+        
+        text-align:center;
+        line-height:120px;
+        font-size:40px;
+        color:#aaa;
+        // cursor: pointer;
+        .add_img_box{
+            position: relative;
+            width:100%;
+            height:100%;
+           
+            
+            .add_img_input{
+                position: absolute;
+                top:0;
+                left:-20px;
+                right:0px;
+                bottom:0;
+                width:120%;
+                height:100%;
+                font-size:0;
+                opacity: 1;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .img_notice{
+        // color:#ff0000;
+        margin-top:20px;
+        vertical-align: middle;
+        i{
+            margin-right:3px;
+        }
+    }
+
+
+    .scale_img_wrap{
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background-color:rgba(45,45,45,.8);z-index:8888;
+
+        img{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%)
+        }
+    }

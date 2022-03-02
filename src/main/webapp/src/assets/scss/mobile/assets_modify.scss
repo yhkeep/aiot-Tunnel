@@ -1,0 +1,41 @@
+.mobile_assets_create_wrap{
+        // height:100%;
+        // overflow-y:auto;
+        // -webkit-overflow-scrolling: touch;
+        background-color: #f5f5f5;
+        text-align:left;
+        padding-bottom:px2rem(100);
+    }
+
+    .cell_item_img_box>.cell_item_box{
+      background: transparent;
+    }
+
+    .cell_item_box{
+      padding:px2rem(20) 0 ;
+      background-color: #fff;
+    }
+
+    .cell_item{
+        padding:10px 16px 0;
+              h5{
+                  font-size:14px;
+                  font-weight: normal;
+                  margin-bottom:px2rem(20)
+              }
+    }
+
+    .cell_item_img_box .cell_item_box{
+      text-align: center;
+    }
+
+    .tools_wrap{
+        height:60px;
+        padding:10px 16px;
+        margin-top:px2rem(40);
+        text-align: left;
+    }
+
+    .tools_button{
+        width:100%;
+    }

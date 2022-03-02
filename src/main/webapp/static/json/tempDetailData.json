@@ -1,0 +1,214 @@
+{
+    "id": 167,
+    "name": "12#微生物试剂",
+    "tempAdjust": 0,
+    "humAdjust": 0,
+    "hourSummary": [
+        {
+            "hour": 0,
+            "topTemp": 5.6,
+            "bottomTemp": 3.05,
+            "topHum": 76.83,
+            "bottomHum": 65.82,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 1,
+            "topTemp": 5.59,
+            "bottomTemp": 2.9,
+            "topHum": 76.78,
+            "bottomHum": 65.82,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 2,
+            "topTemp": 5.81,
+            "bottomTemp": 2.81,
+            "topHum": 77.11,
+            "bottomHum": 65.81,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 3,
+            "topTemp": 5.94,
+            "bottomTemp": 2.64,
+            "topHum": 77.54,
+            "bottomHum": 65.75,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 4,
+            "topTemp": 6.21,
+            "bottomTemp": 2.35,
+            "topHum": 77.94,
+            "bottomHum": 65.82,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 5,
+            "topTemp": 6.35,
+            "bottomTemp": 2.08,
+            "topHum": 77.9,
+            "bottomHum": 65.42,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 6,
+            "topTemp": 6.66,
+            "bottomTemp": 1.9,
+            "topHum": 78.36,
+            "bottomHum": 65.41,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 7,
+            "topTemp": 7.1,
+            "bottomTemp": 1.59,
+            "topHum": 77.85,
+            "bottomHum": 65.23,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 8,
+            "topTemp": 7.3,
+            "bottomTemp": 1.43,
+            "topHum": 77.56,
+            "bottomHum": 64.86,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 9,
+            "topTemp": 7.93,
+            "bottomTemp": 1.98,
+            "topHum": 77.91,
+            "bottomHum": 69.48,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 10,
+            "topTemp": 5.76,
+            "bottomTemp": 3.23,
+            "topHum": 74.81,
+            "bottomHum": 70.2,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 11,
+            "topTemp": 5.77,
+            "bottomTemp": 2.93,
+            "topHum": 77.94,
+            "bottomHum": 72.88,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 12,
+            "topTemp": 5.58,
+            "bottomTemp": 3.74,
+            "topHum": 77.74,
+            "bottomHum": 68.9,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 13,
+            "topTemp": 5.57,
+            "bottomTemp": 3.7,
+            "topHum": 77.18,
+            "bottomHum": 67.76,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 14,
+            "topTemp": 5.86,
+            "bottomTemp": 3.64,
+            "topHum": 77.49,
+            "bottomHum": 67.03,
+            "__typename": "HourSummary"
+        },
+        {
+            "hour": 15,
+            "topTemp": 3.27,
+            "bottomTemp": 3.27,
+            "topHum": 66.49,
+            "bottomHum": 66.49,
+            "__typename": "HourSummary"
+        }
+    ],
+    "daySummary": [
+        {
+            "date": "2019-06-10",
+            "topTemp": 7.33,
+            "bottomTemp": 1.97,
+            "topHum": 82.45,
+            "bottomHum": 63.06,
+            "__typename": "DaySummary"
+        },
+        {
+            "date": "2019-06-11",
+            "topTemp": 10.54,
+            "bottomTemp": 1.74,
+            "topHum": 93.47,
+            "bottomHum": 62.67,
+            "__typename": "DaySummary"
+        },
+        {
+            "date": "2019-06-12",
+            "topTemp": 8.22,
+            "bottomTemp": 1.8,
+            "topHum": 91.78,
+            "bottomHum": 62.37,
+            "__typename": "DaySummary"
+        },
+        {
+            "date": "2019-06-13",
+            "topTemp": 8.03,
+            "bottomTemp": 1.04,
+            "topHum": 79.87,
+            "bottomHum": 62.35,
+            "__typename": "DaySummary"
+        },
+        {
+            "date": "2019-06-14",
+            "topTemp": 7.23,
+            "bottomTemp": 1.23,
+            "topHum": 78.64,
+            "bottomHum": 63.55,
+            "__typename": "DaySummary"
+        },
+        {
+            "date": "2019-06-15",
+            "topTemp": 7.69,
+            "bottomTemp": 1.82,
+            "topHum": 85.9,
+            "bottomHum": 63.07,
+            "__typename": "DaySummary"
+        },
+        {
+            "date": "2019-06-16",
+            "topTemp": 7.93,
+            "bottomTemp": 1.88,
+            "topHum": 78.73,
+            "bottomHum": 63.68,
+            "__typename": "DaySummary"
+        },
+        {
+            "date": "2019-06-17",
+            "topTemp": 7.93,
+            "bottomTemp": 1.43,
+            "topHum": 78.36,
+            "bottomHum": 64.86,
+            "__typename": "DaySummary"
+        }
+    ],
+    "ibeacon": {
+        "id": 362,
+        "onlineData": {
+            "id": 2883795,
+            "temp": 5.4,
+            "hum": 72.5,
+            "__typename": "IbeaconData"
+        },
+        "datas": [],
+        "__typename": "Ibeacon"
+    },
+    "__typename": "Device"
+}

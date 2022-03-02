@@ -1,0 +1,21 @@
+{
+    "id": 148,
+    "no": "132222080015",
+    "name": "吸痰器",
+    "unit": "",
+    "buyTime": "2001-12-30T16:00:00.000Z",
+    "fee": 700,
+    "depart": "外一科",
+    "remark": "报废",
+    "fstCat": "专用设备",
+    "secCat": "医疗设备",
+    "thdCat": "吸引设备",
+    "status": "在用",
+    "num": 0,
+    "ibeacon": {
+        "id": 271,
+        "mac": "AC233FA03144",
+        "__typename": "Ibeacon"
+    },
+    "oldRatio": 100
+}

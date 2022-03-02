@@ -1,0 +1,7 @@
+#today_temp_box,#today_humi_box,#week_temp_box{
+    height:300px;
+}
+
+#temp_box,#humi_box{
+    height:50px;
+}

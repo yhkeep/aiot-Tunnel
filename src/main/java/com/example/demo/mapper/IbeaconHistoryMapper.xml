@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <mapper namespace="com.example.demo.mapper.IbeaconHistoryMapper"> 
+    <!-- 3d对接定义基础字段查询 -->
+     	<!-- 接口查询一周历史记录 -->
+        <!-- <select id="queryWay" resultType="java.util.Map" parameterType="String">
+      
+        	SELECT
+				ib.mac,ib.gatewaymac,ib.maxRssiUpdateTime,ib.`timestamp`,a.AssetID,a.GeneralName,a.AssetName,a.Type,a.Brand,a.ApplyDept
+				,a.LocDept,a.Location,a.`Status`,a.electric,ib.rssi
+			FROM
+				ibeacongateway ib
+			LEFT JOIN asset a ON a.mac = ib.mac
+			<if test="startTime != null and endTime != null">
+			      where a.AssetID = #{AssetID} and timestamp &gt;= #{startTime} and timestamp &lt;= #{endTime} ORDER BY rssi desc
+			</if>
+	
+        </select>   -->
+        <!-- 接口查询一天历史记录 -->
+       <!--  <select id="findDataByOneDay" resultType="java.util.Map" parameterType="String">
+        	SELECT
+				ib.mac,ib.gatewaymac,ib.maxRssiUpdateTime,ib.`timestamp`,a.AssetID,a.GeneralName,a.AssetName,a.Type,a.Brand,a.ApplyDept
+				,a.LocDept,a.Location,a.`Status`
+			FROM
+				ibeacongateway ib
+			LEFT JOIN asset a ON a.mac = ib.mac
+			<if test="startTime != null and endTime != null">
+			    where  timestamp &gt;= #{startTime} and timestamp &lt;= #{endTime}
+			</if>
+        </select>  -->
+        
+          
+        
+        
+        <!-- 保存数据 -->
+        <insert id="save">  
+            insert into IbeaconHistory(timestamp,mac,maxRssiUpdateTime,apChangeNum,apMoveQueue,apMoveFloorQueue,apRssiQueue)
+            values(#{timestamp},#{mac},#{maxRssiUpdateTime},#{apChangeNum},#{apMoveQueue},#{apMoveFloorQueue},#{apRssiQueue})  
+        </insert> 
+         <!-- 更新单位时间内最强ap数据 -->
+        <update id="updateRssiAndTime">  
+         update IbeaconHistory 
+        	<set>
+	            <if test="maxRssiUpdateTime != null">maxRssiUpdateTime=#{maxRssiUpdateTime},</if>
+	            <if test="apChangeNum != null">apChangeNum=#{apChangeNum},</if>
+	            <if test="apMoveQueue != null">apMoveQueue=#{apMoveQueue},</if>
+	            <if test="apMoveFloorQueue != null">apMoveFloorQueue=#{apMoveFloorQueue},</if>
+	            <if test="apRssiQueue != null">apRssiQueue=#{apRssiQueue}</if>
+	            
+        	</set>
+        	where timestamp = #{timestamp} and mac = #{mac}
+        </update> 
+        
+        <!-- 查询单位时间内ap移动记录 -->
+        <!-- <select id="findMacBytime" resultType="com.example.demo.domain.IbeaconHistory" parameterType="String"> 
+         	select * from IbeaconHistory
+         	<if test="currnetTime != null and startTime != null">
+			      where timestamp &gt;= #{startTime} and timestamp &lt;= #{currnetTime} and mac = #{mac} 
+			</if>
+        </select> --> 
+        
+        <!-- 查询ap创建记录 -->
+        <select id="findApBytime" resultType="com.example.demo.domain.IbeaconHistory" parameterType="String"> 
+         	select * from IbeaconHistory
+         	<if test="timestamp != null and timestamp != null">
+			      where timestamp = #{timestamp} and mac = #{mac} 
+			</if>
+        </select> 
+</mapper>  

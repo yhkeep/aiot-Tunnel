@@ -1,0 +1,131 @@
+  .split_wrap{
+    height:500px;
+    
+    .split_wrap_left{
+      float:left;
+      width:77%;
+      border:1px solid #dddddd;
+    }
+    .split_wrap_right{
+      float:right;
+      width:22%;
+      border:1px solid #dddddd;
+    }
+  }
+
+
+
+  .map_area_wrap{
+    position: relative;
+    // border:1px solid #dddddd;
+    // border-radius: 5px;
+    overflow: hidden;
+    height:500px;
+  }
+
+  .device_manage_tools_wrap{
+      // border:1px solid #dddddd;
+      // border-radius: 5px;
+      height:500px;
+      // padding:20px;
+      overflow-y: auto;
+      .device_manage_tools_item{
+        margin-bottom:10px;
+        h3{
+          margin-bottom:10px;
+        }
+
+        .device_manage_tools_item_box{
+          margin:20px 0;
+        }
+       
+      }
+  }
+
+  .map_tools_wrap{
+    position: absolute;
+    bottom:20px;
+    right:10px;
+    z-index:999;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #f8f8f9;
+    
+    .map_tools_item{
+      display: inline-block;
+      margin:0 10px;
+      .map_tools_text{
+        margin-right:5px ;
+        vertical-align:middle;
+      }
+    }
+
+  }
+
+    #device_area{
+      position: absolute;
+      z-index:999;
+      left:100px;
+      top:30px;
+      width:240px;
+      height:300px;
+      border-radius: 5px;
+      background-color:#f8f8f9;
+      overflow: hidden;
+      cursor: default;
+      &.show{
+        display: block;
+      }
+      .device_area_header{
+          height:40px;
+          line-height: 40px;
+          font-size:16px;
+          text-align: center;
+          color:#fff;
+          background-color:#2d8cf0;
+      }
+
+      .device_area_body{
+        height:260px;
+        padding:5px 10px;
+        box-sizing: border-box;
+        
+        .device_area_notice{
+          line-height:250px;
+        }
+        .device_area_content{
+          height:100%;
+          overflow: auto;
+          p{
+            margin:5px 0;white-space:nowrap;
+          }
+
+          &::-webkit-scrollbar
+          {
+              width: 8px;
+              height: 8px;
+              background-color: #f0f5ff;
+              border-radius: 5px;
+          }
+
+          &::-webkit-scrollbar-track
+          {
+              background-color: #f0f5ff;
+              border-radius: 5px;
+          }
+
+          &::-webkit-scrollbar-thumb
+          {
+              background-color: #515a6e;
+              border-radius: 5px;
+          }
+          &::-webkit-scrollbar-corner{
+            background-color: #f0f5ff;
+          }
+
+        }
+
+      }
+     
+    }
+

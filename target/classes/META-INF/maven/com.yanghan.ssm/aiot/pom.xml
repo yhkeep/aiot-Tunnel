@@ -1,0 +1,376 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.yanghan.ssm</groupId>
+  <artifactId>aiot</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1</version>
+  <name>huaxi Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <start-class>com.example.demo.StartUpApplication</start-class>
+ </properties>
+ 
+  <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.10.RELEASE</version>
+        <relativePath/>
+    </parent>
+<!-- <profiles>    考虑到window 和linux环境 npm命令格式的问题，使用maven的profile实现动态指定命令
+  <profile>
+    <id>window</id>
+    <properties>
+      <npm>npm.cmd</npm>
+    </properties>
+
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+
+  </profile>
+</profiles> -->
+  <dependencies>
+     <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <!--排除这个slf4j-log4j12-->
+             <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+ 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- tomcat服务器 -->
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency> -->
+        
+        <!-- 配置使用undertow做服务器，实现AIO模式和通道-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!-- netty异步高性能框架 -->
+        <dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.30.Final</version>
+		</dependency>
+        
+        
+        
+       <!-- 添加fastjson -->
+		<dependency>
+		            <groupId>com.alibaba</groupId>
+		            <artifactId>fastjson</artifactId>
+		            <version>1.2.46</version>
+		</dependency>
+		<!-- Mybatis -->
+     <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>1.1.1</version>
+     </dependency>
+    <!-- Mysql -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+     </dependency>
+     <!-- 数据库连接池 -->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.0.9</version>
+     </dependency>
+     <!-- 依赖activemq -->
+     <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+     </dependency>
+     <!-- activemq-stomp -->
+     <dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-stomp</artifactId>
+			<version>5.13.3</version>
+	</dependency>
+	 <!-- 分页插件 -->
+     <dependency>
+         <groupId>com.github.pagehelper</groupId>
+         <artifactId>pagehelper-spring-boot-starter</artifactId>
+         <version>1.2.3</version>
+     </dependency>
+     <!-- stomp-jms -->
+     <!-- <dependency>
+	    <groupId>org.fusesource.stompjms</groupId>
+	    <artifactId>stompjms-client</artifactId>
+	    <version>1.5</version>
+	</dependency> -->
+     <!-- 依赖websocket -->
+     <dependency>  
+           <groupId>org.springframework.boot</groupId>  
+           <artifactId>spring-boot-starter-websocket</artifactId>  
+     </dependency> 
+     <!--EasyPoi导入导出-->
+     	 <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <!-- 文件上传 -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+     <!-- 测试jsp -->
+      <!-- servlet依赖 -->
+        <!-- <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>javax.servlet-api</artifactId>    
+        </dependency>
+        <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>jstl</artifactId>
+        </dependency> -->
+        <!-- tomcat的支持-->
+        <!-- <dependency>
+               <groupId>org.apache.tomcat.embed</groupId>
+               <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>  -->    
+     <!-- 图片解码 -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.11</version>
+		</dependency>
+		<!-- mqtt -->
+		<!-- <dependency>
+		            <groupId>org.eclipse.paho</groupId>
+		            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+		            <version>1.1.0</version>
+		        </dependency> -->
+		        <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-integration</artifactId>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework.integration</groupId>
+		  <artifactId>spring-integration-stream</artifactId>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework.integration</groupId>
+		  <artifactId>spring-integration-mqtt</artifactId>
+		</dependency>
+		<!-- 生成token -->
+		<dependency>
+	      <groupId>com.auth0</groupId>
+	      <artifactId>java-jwt</artifactId>
+	      <version>3.4.0</version>
+		</dependency>
+		 <!-- 引入log4j2依赖 -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+   		</dependency>
+   		<!-- 图片压缩 -->
+   		<dependency>
+		    <groupId>net.coobird</groupId>
+		    <artifactId>thumbnailator</artifactId>
+		    <version>0.4.8</version>
+		</dependency>
+		
+		 <!--  springboot整合 redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- jackson序列化 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency> 
+        <!-- guava 并发-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <!-- <version>19.0</version> 2020-0828更新-->
+            <version>23.0</version>
+        </dependency>
+        <!-- model简化 -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.4</version>
+		    <scope>provided</scope>
+		</dependency>
+  </dependencies>
+   
+  <build>
+    <finalName>huaxi</finalName>
+    <defaultGoal>compile</defaultGoal>
+  <resources>  
+   <!--    maven项目中src源代码下的xml等资源文件编译进classes文件夹，
+        注意：如果没有这个，它会自动搜索resources下是否有mapper.xml文件，
+        如果没有就会报org.apache.ibatis.binding.BindingException:
+         Invalid bound statement (not found): com.pet.mapper.PetMapper.selectByPrimaryKey -->
+      <resource>  
+        <directory>src/main/java</directory>  
+        <includes>  
+          <include>**/*.xml</include>  
+        </includes>  
+      </resource>  
+
+      <!-- 将resources目录下的配置文件编译进classes文件    -->
+      <resource>
+            <directory>src/main/resources</directory>
+      </resource>
+    </resources>   
+    <plugins>
+    	  <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>
+						true
+					</executable>
+				</configuration>
+		</plugin> 
+	
+       <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+					<mainClass>com.example.demo.StartUpApplication</mainClass>
+					<layout>ZIP</layout>
+					
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<!-- 分离出代码包
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+						 -->
+					</execution>
+				</executions>
+			</plugin>
+			
+<!-- 引入org.codehaus.mojo插件来进行maven调用node命令 -->
+ <!-- <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <executions>
+
+      <execution>
+        <id>exec-npm-install</id>
+        <phase>prepare-package</phase>
+        <goals>
+          <goal>exec</goal>
+        </goals>
+        <configuration>
+          <executable>${npm}</executable>
+          <arguments>
+            <argument>install</argument>
+          </arguments>
+          <workingDirectory>${basedir}/src/main/webapp</workingDirectory>
+        </configuration>
+      </execution>
+
+      <execution>
+        <id>exec-npm-run-build</id>
+        <phase>prepare-package</phase>
+        <goals>
+          <goal>exec</goal>
+        </goals>
+        <configuration>
+          <executable>${npm}</executable>
+          <arguments>
+            <argument>run</argument>
+            <argument>build</argument>
+          </arguments>
+          <workingDirectory>${basedir}/src/main/webapp</workingDirectory>
+        </configuration>
+      </execution>
+
+    </executions>
+  </plugin>  -->
+<!--copy文件到指定目录下 -->
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-spring-boot-webapp</id>
+                       <!--  here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>utf-8</encoding>
+                            <outputDirectory>${basedir}/src/main/resources/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/webapp/dist</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin> 
+
+
+	</plugins>
+	
+  </build>
+</project>

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.IAssetMapper"> 
+        <!-- 查询资产 -->
+        <select id="queryAsset" resultType="com.example.demo.domain.Asset" parameterType="String">
+        	SELECT
+				a.*
+			FROM
+				asset a 
+			where a.address = #{address}
+        </select> 
+        <!-- 查询用户所属部门具有的资产 -->
+        <select id="queryUserAsset" resultType="com.example.demo.domain.Asset" parameterType="com.example.demo.domain.User">
+        	SELECT
+				assetID, assetName, department,amount,unit,status,remark,
+    	type,brand,generalName,applyDept,mac,electric,address,buyDate,money
+    	,oneclassify,secondclassify,threeclassify,fourclassify,specification,placeoforigin,
+    	departmentcode,departmentroom,homeofficenumber,homeofficename,isentrance,suppliername,
+    	generatebusinessname,applyoddnumbers,locDept,location,recorder,academy,architecture,sn
+			FROM
+				asset 
+			<where>
+				<if test="department!= null and department!=''">
+	            	and departmentroom in
+			      <foreach collection="department.split(',')" item="item" index = "index" open="(" separator="," close=")">
+			        	#{item}
+        		  </foreach>
+       			</if>
+				<if  test="address!= null and address!=''">
+					and address = #{address}
+				</if>
+			</where> 
+        </select> 
+        
+        <!-- 查询e6标签 -->
+        <select id="findE6" resultType="java.util.Map">
+			SELECT
+				a.mac
+			FROM
+				asset a 
+			where a.mac is not null and a.mac != ""
+			<!-- where a.address = #{address} -->
+        </select>  
+        
+        
+        <resultMap type="java.util.Map" id="assetMap">
+		    <result property="assetID" column="AssetID" />
+		    <result property="assetName" column="AssetName"/>
+		    <result property="type" column="Type"/>
+		    <result property="brand" column="Brand"/>
+		    <result property="mac" column="Mac"/>
+		    <result property="cadMapRoomName" column="cadMapRoomName"/>
+		    <result property="department" column="department"/>
+		    <result property="locDept" column="LocDept"/>
+		    <association property="received" javaType="java.util.Map">
+		    	<result column="updatetime" property="updatetime"/>
+		    </association>
+		</resultMap>
+		
+		<!-- 
+		<resultMap type="java.util.Map" id="assetMap">
+		    <result property="assetID" column="AssetID" />
+		    <result property="assetName" column="AssetName"/>
+		    <result property="type" column="Type"/>
+		    <result property="brand" column="Brand"/>
+		    <result property="mac" column="Mac"/>
+		    <association property="received" javaType="java.util.Map">
+		    	<result column="updatetime" property="updatetime"/>
+		    </association>
+		</resultMap>
+		<select id="findAssetByReceived" parameterType="String" resultMap="assetMap">
+        	select a.AssetID,a.AssetName,a.Type,a.Brand,r.updatetime,a.Mac,a.cadMapRoomName
+        	from asset a 
+        	left join received r on a.mac=r.mac 
+        	where r.mac is null 
+        	OR r.updatetime &lt;= #{twoMinuteAgo}  or r.updatetime is null 
+    	</select>
+    	 -->
+		
+		<!--
+			TODO0924,设备动态修改
+		 <select id="findAssetByReceived" parameterType="String" resultMap="assetMap">
+        	select a.AssetID,a.AssetName,a.Type,a.Brand,r.updatetime,a.Mac,a.cadMapRoomName,a.department,a.LocDept
+        	from asset a 
+        	left join received r on a.mac=r.mac 
+        	where r.mac is null 
+        	 OR r.updatetime &lt;= #{twoMinuteAgo}  or r.updatetime is null or a.department != a.locDept
+    	</select> -->
+    	
+    	<!-- 过滤未授权部门 LocDept对应用户列表权限中departmentroom -->
+		<select id="findAssetByReceived" parameterType="String" resultMap="assetMap">
+        	select a.AssetID,a.AssetName,a.Type,a.Brand,r.updatetime,a.Mac,a.cadMapRoomName,a.department,a.LocDept
+        	from asset a 
+        	left join received r on a.mac=r.mac 
+        	where ( r.mac is null 
+        	 OR r.updatetime &lt;= #{twoMinuteAgo}  or r.updatetime is null )
+        	  and a.mac is not null and a.mac != "" and LocDept in 
+        	  <foreach item="item" index="index" collection="department"
+    			open="(" separator="," close=")">
+                #{item}
+              </foreach>
+    	</select>
+    	<!-- 3D全部门数据 -->
+		<select id="findAsset3DByReceived" parameterType="String" resultMap="assetMap">
+        	select a.AssetID,a.AssetName,a.Type,a.Brand,r.updatetime,a.Mac,a.cadMapRoomName,a.department,a.LocDept
+        	from asset a 
+        	left join received r on a.mac=r.mac 
+        	where ( r.mac is null 
+        	 OR r.updatetime &lt;= #{twoMinuteAgo}  or r.updatetime is null )
+        	  and a.mac is not null and a.mac != ""
+    	</select>
+    	
+		<!-- TODO0423 添加条件和部门限制
+		<select id="findAssetByReceived" parameterType="String" resultMap="assetMap">
+        	select a.AssetID,a.AssetName,a.Type,a.Brand,r.updatetime,a.Mac,a.cadMapRoomName,a.department,a.LocDept
+        	from asset a 
+        	left join received r on a.mac=r.mac 
+        	where r.mac is null 
+        	 OR r.updatetime &lt;= #{twoMinuteAgo}  or r.updatetime is null 
+    	</select> -->
+    	
+    	
+    	<!--TODO1105查询掉线排除无mac地址 
+    	<select id="findAssetByReceived" parameterType="String" resultMap="assetMap">
+	    	select a.AssetID,a.AssetName,a.Type,a.Brand,r.updatetime,a.Mac,a.cadMapRoomName,a.department,a.LocDept
+	        	from asset a 
+	        	left join received r on a.mac=r.mac 
+	        	where  (a.mac is not null and a.mac != "") and (r.mac is null 
+	        	 OR r.updatetime &lt;= #{twoMinuteAgo}  or r.updatetime is null )
+		</select> -->
+
+<!-- 智能提示辅助 -->
+         <select id="getAssetmarked" parameterType="com.example.demo.domain.Asset" resultType="com.example.demo.domain.Asset">
+         	SELECT DISTINCT a.id
+         	<if test="generalName != null and generalName !=''">
+         		,a.generalName 
+         	</if>
+         	<if test="assetName != null and assetName !=''">
+         		,a.assetName 
+         	</if>
+         	<if test="assetID != null and assetID !=''">
+         		,a.assetID 
+         	</if>
+         	<if test="oneclassify != null and oneclassify !=''">
+         		,a.oneclassify 
+         	</if>
+         	<if test="secondclassify != null and secondclassify !=''">
+         		,a.secondclassify 
+         	</if>
+         	<if test="threeclassify != null and threeclassify !=''">
+         		,a.threeclassify 
+         	</if>
+         	<if test="fourclassify != null and fourclassify !=''">
+         		,a.fourclassify 
+         	</if>
+         	<if test="specification != null and specification !=''">
+         		,a.specification 
+         	</if>
+         	<if test="type != null and type !=''">
+         		,a.type 
+         	</if>
+         	<if test="location != null and location !=''">
+         		,a.location 
+         	</if>
+         	<if test="placeoforigin != null and placeoforigin !=''">
+         		,a.placeoforigin 
+         	</if>
+         	<if test="brand != null and brand !=''">
+         		,a.brand 
+         	</if>
+         	<if test="departmentcode != null and departmentcode !=''">
+         		,a.departmentcode 
+         	</if>
+         	<if test="departmentroom != null and departmentroom !=''">
+         		,a.departmentroom 
+         	</if>
+         	<if test="homeofficenumber != null and homeofficenumber !=''">
+         		,a.homeofficenumber 
+         	</if>
+         	<if test="homeofficename != null and homeofficename !=''">
+         		,a.homeofficename 
+         	</if>
+         	<if test="remark != null and remark !=''">
+         		,a.remark 
+         	</if>
+         	<if test="isentrance != null and isentrance !=''">
+         		,a.isentrance 
+         	</if>
+         	<if test="suppliername != null and suppliername !=''">
+         		,a.suppliername 
+         	</if>
+         	<if test="generatebusinessname != null and generatebusinessname !=''">
+         		,a.generatebusinessname 
+         	</if>
+         	<if test="applyoddnumbers != null and applyoddnumbers !=''">
+         		,a.applyoddnumbers 
+         	</if>
+         	<if test="locDept != null and locDept !=''">
+         		,a.locDept 
+         	</if>
+         	<if test="status != null and status !=''">
+         		,a.status 
+         	</if>
+         	<if test="unit != null and unit !=''">
+         		,a.unit 
+         	</if>
+         	FROM asset a
+         	<!-- 非空字段排除 -->
+         	<where>
+	        	<if test="generalName != null and generalName !=''">
+	        		a.generalName != ""
+	        	</if>
+	        	<if test="assetName != null and assetName !=''">
+	        		a.assetName != ""
+	        	</if>
+	        	<if test="assetID != null and assetID !=''">
+         			a.assetID != ""
+         		</if>
+	         	<if test="oneclassify != null and oneclassify !=''">
+	         		a.oneclassify != ""
+	         	</if>
+	         	<if test="secondclassify != null and secondclassify !=''">
+	         		a.secondclassify != ""
+	         	</if>
+	         	<if test="threeclassify != null and threeclassify !=''">
+	         		a.threeclassify != ""
+	         	</if>
+	         	<if test="fourclassify != null and fourclassify !=''">
+	         		a.fourclassify != ""
+	         	</if>
+	         	<if test="specification != null and specification !=''">
+	         		a.specification != ""
+	         	</if>
+	         	<if test="type != null and type !=''">
+	         		a.type != ""
+	         	</if>
+	         	<if test="location != null and location !=''">
+	         		a.location != ""
+	         	</if>
+	         	<if test="placeoforigin != null and placeoforigin !=''">
+	         		a.placeoforigin != ""
+	         	</if>
+	         	<if test="brand != null and brand !=''">
+	         		a.brand != ""
+	         	</if>
+	         	<if test="departmentcode != null and departmentcode !=''">
+	         		a.departmentcode != ""
+	         	</if>
+	         	<if test="departmentroom != null and departmentroom !=''">
+	         		a.departmentroom != ""
+	         	</if>
+	         	<if test="homeofficenumber != null and homeofficenumber !=''">
+	         		a.homeofficenumber != ""
+	         	</if>
+	         	<if test="homeofficename != null and homeofficename !=''">
+	         		a.homeofficename != ""
+	         	</if>
+	         	<if test="remark != null and remark !=''">
+	         		a.remark != ""
+	         	</if>
+	         	<if test="isentrance != null and isentrance !=''">
+	         		a.isentrance != ""
+	         	</if>
+	         	<if test="suppliername != null and suppliername !=''">
+	         		a.suppliername != ""
+	         	</if>
+	         	<if test="generatebusinessname != null and generatebusinessname !=''">
+	         		a.generatebusinessname != ""
+	         	</if>
+	         	<if test="applyoddnumbers != null and applyoddnumbers !=''">
+	         		a.applyoddnumbers != ""
+	         	</if>
+	         	<if test="locDept != null and locDept !=''">
+	         		a.locDept != ""
+	         	</if>
+	         	<if test="status != null and status !=''">
+	         		a.status != ""
+	         	</if>
+	         	<if test="unit != null and unit !=''">
+	         		a.unit != ""
+	         	</if>
+        	</where>
+        	 
+        	 
+         </select>  
+       
+	<!-- 获取资产表以及温湿度表中部门属性 TODO210914-->
+	<select id="queryDepartment" resultType="java.util.Map">
+		SELECT DISTINCT(departmentroom) from asset WHERE address =#{address} and (departmentroom is not null and departmentroom != "")  GROUP BY departmentroom
+		UNION SELECT DISTINCT department from humiture 
+	</select>
+<!--<select id="queryDepartment" resultType="java.util.Map">
+		SELECT DISTINCT(departmentroom) from asset WHERE address =#{address} and (departmentroom is not null and departmentroom != "")  GROUP BY departmentroom
+	</select> -->
+
+    	<!--分页查询-->
+    <select id="getDatasByParameter" resultType="com.example.demo.domain.Asset">
+        SELECT * FROM asset
+        <where>
+            <if test="assetName!= null and assetName!=''">
+                AND AssetName LIKE  '%' #{assetName} '%'
+                <!-- AND assetName LIKE  '%' #{assetName} '%' -->
+            </if>
+            <if test="assetID!= null and assetID!=''">
+                AND assetID LIKE  '%' #{assetID} '%'
+            </if>
+            <if test="mac!= null and mac!=''">
+                AND mac = #{mac}
+            </if>
+            <if test="departmentroom != null and departmentroom !=''">
+                AND departmentroom = #{departmentroom}
+            </if>
+            <if test="locDept != null and locDept !=''">
+                AND locDept = #{locDept}
+            </if>
+            <if test="address != null and address !=''">
+                AND address = #{address}
+            </if>
+            <!-- TODO1111 -->
+            <if test="status != null and status !=''">
+                AND status = #{status}
+            </if>
+          <!--   部门
+           分类 -->
+           <if test="oneclassify != null and oneclassify !=''">
+                AND oneclassify = #{oneclassify}
+            </if>
+           <if test="secondclassify != null and secondclassify !=''">
+                AND secondclassify = #{secondclassify}
+            </if>
+           <if test="threeclassify != null and threeclassify !=''">
+                AND threeclassify = #{threeclassify}
+            </if>
+           <if test="fourclassify != null and fourclassify !=''">
+                AND fourclassify = #{fourclassify}
+            </if>
+           <!-- 日期 -->
+           
+           <!-- 部门参数不能为空,此处避免department与前置条件departmentroom冲突 -->
+           <if test="department != null and department.size()>0">
+            	AND departmentroom in
+           		<!-- TODO0325部门条件限制 TEST-->
+	           <foreach item="item" index="index" collection="department"
+	    			open="(" separator="," close=")">
+	                #{item}
+	           </foreach>
+           </if>
+           <!-- TODO0325部门条件限制 TEST-->
+            
+        </where>
+        <!-- 根据入库时间排序 -->
+        ORDER BY BuyDate
+    </select>
+    
+    
+<!--  TODO 1209 查询条件增加
+    <select id="getDatasByParameter" resultType="com.example.demo.domain.Asset">
+        SELECT * FROM asset
+        <where>
+            <if test="assetName!= null and assetName!=''">
+                AND AssetName LIKE  '%' #{assetName} '%'
+            </if>
+            <if test="department != null and department !=''">
+                AND department = #{department}
+            </if>
+            <if test="address != null and address !=''">
+                AND address = #{address}
+            </if>
+        </where>
+    </select> -->
+    <!-- 添加资产数据 -->
+    <insert id="saveAssetDatas" parameterType="com.example.demo.domain.Asset">
+    	INSERT INTO asset (assetID, assetName, department,amount,unit,status,remark,
+    	type,brand,generalName,applyDept,mac,imageUrl,electric,address,buyDate,money
+    	,compressImageUrl,leftImageUrl,allroundImageUrl,aboveImageUrl,rightImageUrl
+    	,oneclassify,secondclassify,threeclassify,fourclassify,specification,placeoforigin,
+    	departmentcode,departmentroom,homeofficenumber,homeofficename,isentrance,suppliername,
+    	generatebusinessname,applyoddnumbers,locDept,location,paperlabelImageUrl,onecodelableImageUrl,recorder,academy,architecture,sn) 
+    	VALUES (#{assetID}, #{assetName}, #{department},
+    	#{amount},#{unit},#{status},#{remark},#{type},#{brand},#{generalName},#{applyDept},
+    	#{mac},#{imageUrl},#{electric},#{address},#{buyDate},#{money},#{compressImageUrl}
+    	,#{leftImageUrl},#{allroundImageUrl},#{aboveImageUrl},#{rightImageUrl}
+    	,#{oneclassify},#{secondclassify},#{threeclassify},#{fourclassify},#{specification},#{placeoforigin},
+    	#{departmentcode},#{departmentroom},#{homeofficenumber},#{homeofficename},#{isentrance},#{suppliername},
+    	#{generatebusinessname},#{applyoddnumbers},#{locDept},#{location},#{paperlabelImageUrl},#{onecodelableImageUrl},#{recorder},#{academy},#{architecture},#{sn});
+    </insert>
+    
+    <!-- 批量删除资产 -->
+    <delete id="delAsset">
+        DELETE FROM asset
+		WHERE AssetID in 
+        <foreach collection="assetid" item="AssetID" open="(" separator="," close=")">
+            #{AssetID}
+        </foreach>
+    </delete>
+    
+    <!-- 更新资产-->
+    
+    <update id="updateAssetDatas" parameterType="com.example.demo.domain.Asset">
+     UPDATE asset 
+        <!-- sql防null -->
+        <set>
+             assetName = #{assetName},
+             department = #{department},
+             amount = #{amount},
+             unit = #{unit},
+             status = #{status},
+             remark = #{remark},
+             type = #{type},
+             brand = #{brand},
+             generalName = #{generalName},
+             applyDept = #{applyDept},
+             mac = #{mac},
+             locDept=#{locDept},
+             money=#{money},
+             buyDate=#{buyDate},
+             oneclassify=#{oneclassify},
+             secondclassify=#{secondclassify},
+             threeclassify=#{threeclassify},
+             fourclassify=#{fourclassify},
+             specification=#{specification},
+             placeoforigin=#{placeoforigin},
+             departmentcode=#{departmentcode},
+             departmentroom=#{departmentroom},
+             homeofficenumber=#{homeofficenumber},
+             homeofficename=#{homeofficename},
+             isentrance=#{isentrance},
+             suppliername=#{suppliername},
+             generatebusinessname=#{generatebusinessname},
+             applyoddnumbers=#{applyoddnumbers},
+             recorder=#{recorder},
+             location = #{location},
+             architecture= #{architecture},
+             academy=#{academy},
+             sn = #{sn},
+	        <if test="imageUrl != null and imageUrl !=''">
+	             imageUrl = #{imageUrl},
+	        </if>
+	        <if test="compressImageUrl != null and compressImageUrl !=''">
+	             compressImageUrl = #{compressImageUrl},
+	        </if>
+	        <if test="leftImageUrl != null and leftImageUrl !=''">
+	             leftImageUrl=#{leftImageUrl},
+	        </if>
+	        <if test="allroundImageUrl != null and allroundImageUrl !=''">
+	             allroundImageUrl=#{allroundImageUrl},
+	        </if>
+	        <if test="aboveImageUrl != null and aboveImageUrl !=''">
+	             aboveImageUrl=#{aboveImageUrl},
+	        </if>
+	        <if test="rightImageUrl != null and rightImageUrl !=''">
+	             rightImageUrl=#{rightImageUrl},
+	        </if>
+	        <if test="paperlabelImageUrl != null and paperlabelImageUrl !=''">
+	             paperlabelImageUrl=#{paperlabelImageUrl},
+	        </if>
+	        <if test="onecodelableImageUrl != null and onecodelableImageUrl !=''">
+	             onecodelableImageUrl=#{onecodelableImageUrl}
+	        </if>
+	        
+        </set>
+        WHERE assetID = #{assetID}
+    </update>
+    
+    
+    
+    <!-- 更新资产location,地图名-->
+    <update id="updateAL" parameterType="com.example.demo.domain.Asset">
+        UPDATE asset 
+        <set>
+        	mac = #{mac},
+	        <if test="location != null and location !=''">
+	             location = #{location},
+	        </if>
+	        <if test="floor != null and floor !=''">
+	             floor = #{floor},
+	        </if>
+	        <if test="cadMapRoomName != null and cadMapRoomName !=''">
+	             cadMapRoomName = #{cadMapRoomName},
+	        </if>
+	        <if test="check != null and check !=''">
+	             `check` = #{check},
+	        </if>
+	        <if test="department != null and department !=''">
+	             department = #{department},
+	        </if>
+	        <if test="electric != null and electric !=''">
+	             electric = #{electric}
+	        </if>
+        </set>
+        <!-- location路径更新使用mac -->
+        WHERE mac = #{mac}
+    </update>
+    
+    <!-- 更新盘点时间 -->
+    <update id="updateCH" parameterType="com.example.demo.domain.Asset">
+        UPDATE asset 
+        <set>
+        	assetID = #{assetID},
+	        <if test="check != null and check !=''">
+	             `check` = #{check}
+	        </if>
+        </set>
+        <!-- location路径更新使用mac -->
+        WHERE assetID = #{assetID} 
+    </update>
+    <!-- 更新图片 -->
+    <update id="updatePIG" parameterType="com.example.demo.domain.Asset">
+        UPDATE asset 
+        <set>
+	        imageUrl = #{imageUrl},
+	        compressImageUrl = #{compressImageUrl},
+	        leftImageUrl=#{leftImageUrl},
+	        allroundImageUrl=#{allroundImageUrl},
+	        aboveImageUrl=#{aboveImageUrl},
+	        rightImageUrl=#{rightImageUrl},
+			paperlabelImageUrl=#{paperlabelImageUrl},
+			onecodelableImageUrl=#{onecodelableImageUrl}
+        </set>
+        <!-- location路径更新使用mac -->
+        WHERE assetID = #{assetID} 
+    </update>
+    <!-- 更新状态 -->
+    <update id="updateStatus" parameterType="com.example.demo.domain.Asset">
+        UPDATE asset 
+        <set>
+        	<if test="status!= null and status!=''">
+		        status=#{status}
+            </if>
+        </set>
+        <!-- location路径更新使用mac -->
+        WHERE assetID = #{assetID} 
+    </update>
+    
+    
+    <select id="queryImageByAssetID" resultType="com.example.demo.domain.Asset" parameterType="com.example.demo.domain.Asset">
+        SELECT a.imageUrl,a.leftImageUrl,
+        a.allroundImageUrl,a.aboveImageUrl,a.rightImageUrl,a.paperlabelImageUrl,a.onecodelableImageUrl
+         FROM asset a
+        <where>
+            <if test="assetid!= null and assetid!=''">
+                 AssetID = #{assetid}
+            </if>
+        </where>
+    </select>
+    
+    <select id="selectID" parameterType="com.example.demo.domain.Asset" resultType="java.util.Map">
+    	SELECT id from asset 
+    	WHERE 
+    	AssetID in 
+    	<foreach collection="list" item="asset" open="(" separator="," close=")">
+            #{asset.assetID}
+        </foreach>
+    	 or cadMapRoomName in 
+    	<foreach collection="list" item="asset" open="(" separator="," close=")">
+            #{asset.cadMapRoomName}
+        </foreach>
+        and `check` >= #{asset.check}
+        
+       <!-- 只盘点在线设备
+        SELECT id from asset 
+    	WHERE 
+    (	AssetID in 
+    	("ZCKP20200400035")
+    	 or cadMapRoomName in (null) )
+        and `check` >= "2020-10-28 11:59:22" -->
+    </select>
+<!--     查询盘点历史记录详细 -->
+	<select id="queryAssetCheckDetail" parameterType="java.util.List" resultType="java.util.Map">
+    	SELECT * from asset 
+    	WHERE 
+    	id in 
+    	<foreach collection="check" item="ch" open="(" separator="," close=")">
+            #{ch}
+        </foreach>
+    </select>
+    
+    
+    <!-- <select id="queryAssetTotal"  resultMap="assetTotalMap"> -->
+     <select id="queryAssetTotal" resultType="java.util.Map">
+    	SELECT `Status`,Amount,Money,assetID FROM asset where address = #{address} 
+    	<if test="department != null and department.size()>0">
+            	AND departmentroom in
+           		<!-- TODO0325部门条件限制 TEST-->
+	           <foreach item="item" index="index" collection="department"
+	    			open="(" separator="," close=")">
+	                #{item}
+	           </foreach>
+         </if>
+    </select>
+    <!--包含资产中其他属性,查询时间较长
+    <resultMap type="com.example.demo.domain.Asset" id="assetTotalMap">
+		    <result property="amount" column="Amount"/>
+		    <result property="status" column="Status"/>
+		    <result property="money" column="Money"/>
+	</resultMap> -->
+</mapper>  

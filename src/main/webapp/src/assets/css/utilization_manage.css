@@ -1,0 +1,11 @@
+    #utilization_line{
+        height:500px;
+    }
+
+    #importDevice_01_line,#importDevice_02_line{
+        height:100px;
+    }
+
+    #all_utili_wrap{
+        height:200px;
+    }

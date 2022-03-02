@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.IhygrothermographWarnMapper">
+ <!-- 添加温湿度数据 -->
+    	<insert id="addHywarnValue" parameterType="com.example.demo.domain.HygrothermographWarn">
+	    	INSERT INTO HygrothermographWarn (gatewaymac, temperature, humidity,currentTime,mac,warnnum,electric) 
+	    	VALUES (#{gatewaymac}, #{temperature}, #{humidity},
+	    	#{currentTime},#{mac},#{warnnum},#{electric});
+    	</insert>
+   <!--  	//	解除告警数值
+	private String relieveWarn;
+//	解除告警时间
+	private String relieveTime;
+//	解除告警温度
+	private String relieveTemp;
+//	解除告警湿度
+	private String relieveHum; -->
+    	 <!-- 更新温湿度表告警数据 -->
+        <update id="updateHywarnValue">
+            update HygrothermographWarn
+        	<set>
+	        	<if test="relieveTemp != null and relieveTemp != null">
+				     relieveTemp= #{relieveTemp},
+				</if>
+	        	<if test="relieveHum != null and relieveHum != null">
+				     relieveHum= #{relieveHum},
+				</if>
+	        	<if test="relieveTime != null and relieveTime != null">
+				     relieveTime= #{relieveTime},
+				</if>
+	        	
+	        	<if test="relieveWarn != null and relieveWarn != null">
+				     relieveWarn= #{relieveWarn},
+				</if>
+				<if test="mac != null and mac != null">
+				     mac= #{mac}
+				</if>
+        	</set>
+        	where mac = #{mac} and warnnum= #{warnnum} and (relieveWarn is null or relieveWarn = "")
+        </update> 
+        
+         <!-- 解除告警类型查询 -->  
+        <select id="selectHwHistory" resultType="java.util.Map" parameterType="com.example.demo.domain.HygrothermographWarn">
+        	SELECT
+				count(*)
+			FROM
+				HygrothermographWarn hy 
+			<if test="warnnum != null and mac != null">
+			     where mac=#{mac} and warnnum = #{warnnum} and (relieveWarn is null or relieveWarn = "")
+			</if>
+        </select> 	
+        
+        <!-- <select id="getHumWarn" resultType="com.example.demo.domain.HygrothermographWarn" parameterType="String">
+        	SELECT * from HygrothermographWarn WHERE mac = #{mac}  ORDER BY currentTime DESC LIMIT 1;
+        	SELECT * from hygrothermographwarn WHERE warnnum = #{warnnum} and mac = #{mac} and
+			currentTime &gt; (SELECT currentTime from hygrothermographwarn WHERE warnnum = #{warnnumRelieve} and mac=#{mac} ORDER BY currentTime DESC LIMIT 1);
+        </select> -->
+        
+        
+        
+        
+</mapper>  

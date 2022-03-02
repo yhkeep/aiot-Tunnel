@@ -1,0 +1,14 @@
+
+.form_item{
+    margin-top:20px
+}
+
+.form_item h3{
+    margin-bottom:10px;
+    color:#656e82;
+}
+
+.submit_btn_wrap{
+    text-align: center;
+    margin-top:20px;
+}

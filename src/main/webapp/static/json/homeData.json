@@ -1,0 +1,34 @@
+{
+    "summary":{
+            "assetOld30": 10,
+            "assetOld80": 20,
+            "assetOld100": 20,
+            "assetTotal": 133768,
+            "assetTotalFee": 162063376,
+            "deviceTotalFee": 11708520,
+            "deviceUtilization":0
+    },
+
+    "newAssetsData":[
+        {
+            "AssetID":"",
+            "GeneralName":"",
+            "AssetName":"",
+            "CreateTime":"",
+            "Type":"",
+            "Brand":"",
+            "ApplyDept":"",
+            "LocDept":"",
+            "Location":"",
+            "Status":"",
+            "MAC":"",
+            "OperatingRoom":"",
+            "Amount":"",
+            "Unit":"",
+            "BuyDate":"",
+            "Money":"",
+            "Check":""
+        }
+       
+    ]
+}

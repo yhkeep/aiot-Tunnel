@@ -1,0 +1,64 @@
+
+    .total_data_wrap{
+        margin-top:30px;
+        text-align: center;
+    }
+    
+    .total_data_item:nth-of-type(1)>.total_icon_box{
+        background-color: #2d8cf0;
+    }
+    .total_data_item:nth-of-type(2)>.total_icon_box{
+        background-color: #19be6b;
+    }
+    .total_data_item:nth-of-type(3)>.total_icon_box{
+        background-color: #e46cbb;
+    }
+    .total_data_item:nth-of-type(4)>.total_icon_box{
+        background-color: #9a66e4;
+    }
+
+    .total_icon_box{
+        width:35%;
+        float:left;
+        line-height: 100px;
+    }
+
+    .total_icon_box i{
+        font-size:35px;
+        color:#fff;
+    }
+
+    .total_item_box{
+        width:65%;
+        float:right;
+        height:100%;
+    }
+
+    .total_item_box>.total_item_box_top,.total_item_box>.total_item_box_bottom{
+        height:50%;
+        line-height:60px;
+        color:#515a6e;
+    }
+
+    .total_item_box_top{
+        font-size:25px;
+        font-weight: bold;
+    }
+
+    .total_item_box_bottom{
+        font-size:16px;
+    }
+
+    #utilization_line{
+        height:500px;
+    }
+
+    #importDevice_01_line,#importDevice_02_line{
+        height:100px;
+    }
+
+    #old_ratio_wrap{
+        height:200px;
+    }
+
+    

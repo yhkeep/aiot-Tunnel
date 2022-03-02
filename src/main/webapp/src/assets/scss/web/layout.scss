@@ -1,0 +1,322 @@
+    .layout_wrap{
+        width:100%;
+        height:100%;
+    }
+
+    .layout{
+        border: 1px solid #d7dde4;
+        background: #f5f7f9;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .collapse_icon{
+      cursor: pointer;
+    }
+
+    .layout-header-bar{
+        background: #fff;
+        // box-shadow: 0 1px 1px rgba(0,0,0,.1);
+        user-select:none;
+    }
+
+    .ivu-layout-sider{
+        background-color: #fff;
+        border-right:1px solid #eee;
+        overflow: auto;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    
+
+    #content_wrap{
+      padding:18px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height:calc(100% - 100px)
+    }
+
+
+    .menu-item i{
+      font-size:16px;
+    }
+
+    .menu-icon{
+        transition: all .3s;
+    }
+
+    .rotate-icon{
+        transform: rotate(-90deg);
+    }
+
+    .ivu-menu-item>span.hide{
+        display: none;
+    }
+
+
+    .collapsed-menu i{
+        transform: translateX(5px);
+        transition: font-size .2s ease .2s, transform .2s ease .2s;
+        vertical-align: middle;
+        font-size: 22px;
+    }
+
+
+    .ivu-tooltip{
+        width:100%;
+        padding:0 10px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .ivu-tooltip.collapsed{
+        width:78px;
+    }
+
+    .ivu-menu-vertical .ivu-menu-item, .ivu-menu-vertical .ivu-menu-submenu-title{
+        padding:14px!important
+    }
+
+    .bread_crumb_wrap{
+      display: inline-block;
+      vertical-align: middle;
+      margin-top:-1px;
+      // margin-left:30px;
+    }
+
+    .return_wrap{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left:30px;
+    }
+
+
+
+    .user_wrap{
+      float:right;
+      margin-right:18px;
+    }
+
+
+
+    .logo_wrap{
+        text-align: center;
+        margin:10px 0;
+    }
+
+    .logo_wrap a{
+        display: block;
+        // text-align: center;
+        text-align: left;
+        padding-left:27px;
+    }
+
+    .logo_wrap img{
+        width:100px;
+        max-width:50%;
+    }
+
+    .user_box{
+      display: inline-block;
+      margin-left:5px;
+    }
+
+    .user_info{
+      height:40px;
+      line-height: 40px;
+      padding:0 16px;
+      box-sizing: border-box;
+    }
+
+    .user_info>h3{
+      display: inline-block;
+      font-size:14px;
+      line-height: 20px;
+      margin-right:5px;
+      vertical-align: middle;
+      max-width:60px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .device_notice_wrap{
+      display: inline-block;
+      height:30px;
+      line-height: 30px;
+      margin-right:20px;
+      cursor: pointer;
+    }
+
+    
+
+    #return_top_wrap{
+      display: none;
+      position: absolute;
+      bottom:30px;
+      right:35px;
+      z-index:1010;
+      cursor: pointer;
+      font-size:25px;
+      text-align: center;
+      width:50px;
+      height:45px;
+      line-height: 40px;
+      color:#fff;
+      background-color:#666666;
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+
+    #return_top_wrap.return_top_active{
+      display: block;
+    }
+
+    .device_modal_wrap{
+      max-height:300px;
+      overflow: auto;
+        &:hover{
+            &::-webkit-scrollbar
+            {
+                display:block;
+            }
+        }
+        &::-webkit-scrollbar
+        {
+            display:none;
+            width: 8px;
+            height: 8px;
+            background-color: #F5F5F5;
+            border-radius: 30px;
+        }
+        &::-webkit-scrollbar-track
+        {
+            background-color: #F5F5F5;
+            border-radius: 30px;
+        }
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: #515a6e;
+            border-radius: 30px;
+        };
+    }
+
+    .device_message_item{
+        margin-bottom:10px;
+        width:100%;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        .device_message_item_left{
+            flex:0 0 40px;
+            .device_message_icon_box{
+                margin-top:3px;
+                font-size:20px;
+                line-height:30px;
+                width:30px;
+                height:30px;
+                color:#fff;
+                border-radius:5px;
+                text-align: center;
+                i{
+                    margin-top:-5px;
+                }
+            }
+        }
+
+        .device_message_item_right{
+            display: inline-block;
+            text-align: left;
+            font-size:14px;
+            white-space: nowrap;
+            .device_message_item_right_top{
+                span{
+                    &.lose{
+                        display:inline-block;background-color:#fbe2f2;border:1px solid #e46cbb;border-radius:3px;padding:2px 5px;font-size:12px;color:#e46cbb;margin-left:20px;
+                    }
+
+                    &.beyond{
+                        display:inline-block;background-color:#eae0f9;border:1px solid #9a66e4;border-radius:3px;padding:2px 5px;font-size:12px;color:#9a66e4;margin-left:20px;
+                    }
+                }
+            }
+            .device_message_item_right_bottom{
+                font-size:12px;
+                color:#828282;
+                // text-indent:15px
+            }
+        }
+    }
+
+    .device_message_color_1{
+        color:#e46cbb;
+    }
+    .device_message_bg_color_1{
+        background-color:#e46cbb;
+    }
+    .device_message_color_2{
+        color:#9a66e4;
+    }
+    .device_message_bg_color_2{
+        background-color:#9a66e4;
+    }
+
+    .route_nav_wrap{
+        // padding:5px 0;
+        position: relative;
+        height:36px;
+        // box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        z-index:1;
+        user-select:none;
+        background-color:#eaecee;
+    }
+
+    .route_scroll_arrow_left{
+        position: absolute;
+        left:18px;
+        height:34px;
+        line-height: 34px;
+    }
+    .route_scroll_arrow_right{
+        position: absolute;
+        right:18px;
+        height:34px;
+        line-height: 34px;
+    }
+
+    .route_scroll_wrap{
+        position: absolute;
+        height:34px;
+        line-height: 34px;
+        left:68px;
+        right:68px;
+        overflow: hidden;
+    }
+
+    .route_scroll_box{
+        position: absolute;
+        left:0;
+        top:0;
+        // display: inline-block;
+        white-space: nowrap;
+        transition: left .3s ease;
+    }
+
+    .device_message_num_item{
+        display: flex;
+        flex:45% 0 0;
+        padding:5px 0;
+        color:#fff;
+        align-items: center;
+        justify-content: center;
+        border-radius:5px;
+        &:nth-of-type(1){
+            background-color: #e46cbb;
+        };
+        &:nth-of-type(2){
+            background-color: #9a66e4;
+        };
+    }
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="assets/js/v5.3.0-dist/ol.css">
+  <script src="../src/assets/js/v5.3.0-dist/ol.js"></script></head>
+<body>
+<div id="map">
+
+
+
+</div>
+
+<script>
+  var map = new ol.Map({
+    target: 'map',
+    view: new ol.View({
+      center: ol.proj.fromLonLat([-73.9929199, 40.7243642]),
+      zoom: 12
+    })
+  });
+
+  var baseSource = new ol.source.TileWMS({
+    url: 'http://192.168.0.54:8089/geoserver/test/wms',
+    params: {
+      'LAYERS': 'Export_Output',
+      'TILED': true
+    },
+    serverType: 'geoserver'
+  });
+
+  var baseLayer = new ol.layer.Tile({
+    source: baseSource
+  });
+
+  map.addLayer(baseLayer);
+</script>
+</body>
+</html>

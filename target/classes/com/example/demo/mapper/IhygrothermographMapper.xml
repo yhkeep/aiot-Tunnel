@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.IhygrothermographMapper"> 
+        <!-- 查询温湿度 -->
+        <select id="search" resultType="com.example.demo.domain.Hygrothermograph">
+        	SELECT
+				hy.*
+			FROM
+				hygrothermograph hy 
+			<if test="startime != null and endtime != null">
+			     <!-- where currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} and mac = #{mac} TODO1119-->
+			     where mac = #{mac} and currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} 
+			</if>
+<!-- 		TODO210916
+			<if test="startime != null and endtime != null">
+			     where currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} and mac = #{mac} TODO1119
+			     where currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} and mac = #{mac}
+			</if> -->
+				
+        </select>
+        <!-- 区间时间温湿度查询 -->  
+        <select id="searchByTime" resultType="java.util.Map">
+        	SELECT
+				count(*)
+			FROM
+				hygrothermograph hy 
+			<if test="startime != null and endtime != null and startime !='' and endtime != ''">
+			     where  mac = #{mac} and currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} 
+			</if>
+
+        </select> 
+<!--    TODO0127 异常： s1中每分钟多个ap同时更新温湿度  
+		<select id="searchByTime" resultType="java.util.Map">
+        	SELECT
+				count(*)
+			FROM
+				hygrothermograph hy 
+			<if test="startime != null and endtime != null and startime !='' and endtime != ''">
+			     where currentTime &gt; #{startime} and currentTime &lt; #{endtime} and mac = #{mac}
+			</if>
+
+        </select>  -->
+        
+        
+        <!-- 闭区间时间温湿度查询 -->  
+        <select id="searchByEndTime" resultType="java.util.Map">
+        	SELECT
+				count(*)
+			FROM
+				hygrothermograph hy 
+			<if test="startime != null and endtime != null and startime !='' and endtime != ''">
+			     where currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} and mac = #{mac}
+			</if>
+
+        </select> 
+        
+        
+<!--         区间时间温湿度查询  TODO1221
+        <select id="searchByTime" resultType="java.util.Map">
+        	SELECT
+				count(*)
+			FROM
+				hygrothermograph hy 
+			<if test="startime != null and endtime != null and startime !='' and endtime != ''">
+			     where currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} and mac = #{mac}
+			</if>
+
+        </select>  -->
+        
+        <!-- 温湿度部门授权查看或下载 -->
+        <select id="queryhumDatas" resultType="com.example.demo.domain.Humiture" parameterType="com.example.demo.domain.Humiture">
+        	SELECT * from humiture 
+        	<where>
+	            <if test="department!= null and department!=''">
+	            department in
+			      <foreach collection="department.split(',')" item="item" index = "index" open="(" separator="," close=")">
+			        	#{item}
+        			</foreach>
+       			</if>
+	            <if test="address!= null and address!=''">
+			       and address = #{address}
+       			</if>
+        	</where>
+        </select>
+<!--    TODO0915 温湿度数据获取
+		<select id="queryhumDatas" resultType="com.example.demo.domain.Humiture" parameterType="com.example.demo.domain.Humiture">
+        	SELECT * from humiture where address = #{address}
+        </select> -->
+        
+        <!-- 查询限制 -->  
+        <select id="queryLimit" resultType="com.example.demo.domain.Humiture">
+        	SELECT * from humiture where mac = #{mac} 
+        </select>  
+        
+        <!-- 更新设备限制 --> 
+        <update id="updateHumDatas" parameterType="com.example.demo.domain.Humiture">
+            update humiture
+        	<set>
+	            <if test="freezername != null">freezername=#{freezername},</if>
+	            <if test="department != null">department=#{department},</if>
+	            <if test="temperaturefitted != null">temperaturefitted=#{temperaturefitted},</if>
+	            <if test="freezernumber != null">freezernumber=#{freezernumber},</if>
+	            <if test="location != null">location=#{location},</if>
+	            <if test="type != null">type=#{type},</if>
+	            <if test="humidityfitted != null">humidityfitted=#{humidityfitted},</if>
+	            <if test="saveinterval != null and saveinterval !='' ">saveinterval=#{saveinterval},</if>
+	            <if test="mac != null">mac=#{mac}</if>
+        	</set>
+        	where mac = #{mac}
+        </update> 
+        <!-- 更新温湿度表数据 -->
+        <update id="updateHyWarnnum" >
+            update hygrothermograph
+        	<set>
+	        	<if test="temperature != null and temperature != null">
+				     temperature= #{temperature},
+				</if>
+	        	<if test="humidity != null and humidity != null">
+				     humidity= #{humidity},
+				</if>
+	        	<if test="currentTime != null and currentTime != null">
+				     currentTime= #{currentTime},
+				</if>
+	        	<if test="mac != null and mac != null">
+				     mac= #{mac},
+				</if>
+	        	<if test="warnnum != null and warnnum != null">
+				     warnnum= #{warnnum}
+				</if>
+        	</set>
+        	where mac = #{mac} and currentTime &gt;= #{startime} and currentTime &lt;= #{currentTime}
+        </update> 
+        
+        
+        
+        
+        <!-- 拿到最新数据 -->
+        <select id="getHumCurrentime" resultType="com.example.demo.domain.Hygrothermograph">
+        	SELECT * from hygrothermograph WHERE mac = #{mac}  ORDER BY currentTime DESC LIMIT 1;
+        </select>  
+        
+    	 <!-- 添加温湿度数据 -->
+    	<insert id="insertHy" parameterType="com.example.demo.domain.Hygrothermograph">
+	    	INSERT INTO hygrothermograph (gatewaymac, temperature, humidity,currentTime,mac,warnnum,electric) 
+	    	VALUES (#{gatewaymac}, #{temperature}, #{humidity},
+	    	#{currentTime},#{mac},#{warnnum},#{electric});
+    	</insert>
+    	
+    	
+    	<!--分页查询,时间排序-->
+
+    <select id="getDatasByParameter" resultType="com.example.demo.domain.Hygrothermograph">
+        SELECT * FROM hygrothermograph
+        	<if test="startime != null and endtime != null and (mac == null or mac =='')">
+         		 where currentTime &gt;= #{startime} and currentTime &lt;= #{endtime}
+         	</if>
+            <if test="startime != null and endtime != null and mac != null and mac != ''">
+			     where currentTime &gt;= #{startime} and currentTime &lt;= #{endtime} and mac = #{mac}
+			</if>
+			
+			ORDER BY currentTime desc
+    </select>
+    
+    <!-- 添加设备 -->
+    <insert id="insertHumiture" parameterType="com.example.demo.domain.Humiture">
+	    	INSERT INTO humiture (freezernumber, freezername, temperaturefitted,humidityfitted,type,mac,department,
+	    	location,address,saveinterval)
+	    	VALUES (#{freezernumber}, #{freezername}, #{temperaturefitted},#{humidityfitted},#{type},#{mac},#{department},
+	    	#{location},#{address},#{saveinterval});
+    </insert>
+    
+    <!-- 告警数据 -->
+    <select id="getDatasWarnValue" resultType="java.util.Map" parameterType="String">
+    	<!-- SELECT * from humiture hum LEFT JOIN hygrothermograph h on h.mac = hum.mac //TODO1218 -->
+    	
+    	SELECT * from humiture hum LEFT JOIN HygrothermographWarn h on h.mac = hum.mac
+    	
+    	<!-- <where>
+    		<if test="startime != null and endtime != null">
+			     h.currentTime &gt; #{startime} and h.currentTime &lt;= #{endtime}
+			</if>
+    	</where> -->
+    	<where>
+	    	 (h.warnnum is not null and h.warnnum != "") and ( h.relieveWarn is null or h.relieveWarn = "" )
+    	</where>
+    	
+    </select>
+    
+    
+    <delete id="delEquipment">
+        DELETE FROM humiture
+		WHERE mac in 
+        <foreach collection="humitureEquipment" item="hum" open="(" separator="," close=")">
+            #{hum}
+        </foreach>
+    </delete>
+</mapper>  

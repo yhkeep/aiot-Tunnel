@@ -1,0 +1,32 @@
+2020-06-19 09:57:08 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 09:57:08 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 09:58:39 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 09:58:39 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 09:59:59 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 09:59:59 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 10:09:39 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 10:09:39 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 10:23:42 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 10:23:42 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 15:47:03 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 15:47:03 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 15:49:07 [org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable 384]-[WARN] Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token
+ at [Source: java.io.PushbackInputStream@490ace2f; line: 1, column: 1]
+2020-06-19 15:49:55 [org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable 384]-[WARN] Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token
+ at [Source: java.io.PushbackInputStream@4e3fc3bd; line: 1, column: 1]
+2020-06-19 15:55:07 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 15:55:07 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 15:55:37 [org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable 384]-[WARN] Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token
+ at [Source: java.io.PushbackInputStream@3deb8e5f; line: 1, column: 1]
+2020-06-19 15:57:01 [org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable 384]-[WARN] Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token
+ at [Source: java.io.PushbackInputStream@71a331ea; line: 1, column: 1]
+2020-06-19 15:57:38 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 15:57:38 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 15:58:17 [org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable 384]-[WARN] Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token
+ at [Source: java.io.PushbackInputStream@5a1cda28; line: 1, column: 1]
+2020-06-19 16:18:13 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 16:18:13 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 16:24:52 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 16:24:52 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2020-06-19 17:07:05 [io.undertow.websockets.jsr handleDeployment 67]-[WARN] UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2020-06-19 17:07:05 [io.undertow.websockets.jsr handleDeployment 76]-[WARN] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used

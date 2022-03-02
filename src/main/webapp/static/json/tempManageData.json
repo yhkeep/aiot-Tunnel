@@ -1,0 +1,1838 @@
+[
+    {
+        "id": 176,
+        "depart": "某科室",
+        "name": "1#（上）样本留存（发光、金域）",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 5.06,
+                "bottomTemp": 2.69,
+                "topHum": 88.45,
+                "bottomHum": 50.91,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.04,
+                "bottomTemp": 6.27,
+                "topHum": 89.02,
+                "bottomHum": 87.36,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.43,
+                "bottomTemp": 5.38,
+                "topHum": 86.06,
+                "bottomHum": 66.43,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.61,
+                "bottomTemp": 3.6,
+                "topHum": 66.27,
+                "bottomHum": 55.01,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.43,
+                "bottomTemp": 5.39,
+                "topHum": 86.54,
+                "bottomHum": 81.43,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.26,
+                "bottomTemp": 7.12,
+                "topHum": 88.06,
+                "bottomHum": 83.03,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.31,
+                "bottomTemp": 3.51,
+                "topHum": 63.1,
+                "bottomHum": 52.18,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.7,
+                "bottomTemp": 4.01,
+                "topHum": 82.12,
+                "bottomHum": 69.83,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.23,
+                "bottomTemp": 7.56,
+                "topHum": 96.93,
+                "bottomHum": 95.91,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.42,
+                "bottomTemp": 3.49,
+                "topHum": 67.41,
+                "bottomHum": 51.98,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.25,
+                "bottomTemp": 3.06,
+                "topHum": 94.77,
+                "bottomHum": 65.56,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.61,
+                "bottomTemp": 6.91,
+                "topHum": 89.32,
+                "bottomHum": 89.3,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.78,
+                "bottomTemp": 5.59,
+                "topHum": 95.94,
+                "bottomHum": 67,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.76,
+                "bottomTemp": 3.51,
+                "topHum": 81.11,
+                "bottomHum": 52.58,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.9,
+                "bottomTemp": 6.58,
+                "topHum": 96.16,
+                "bottomHum": 89.3,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 361,
+            "mac": "AC233FA018D9",
+            "data": {
+                "id": 2883804,
+                "temp": 0.67,
+                "hum": 43.57,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 167,
+        "depart": "某科室",
+        "name": "12#微生物试剂",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 5.6,
+                "bottomTemp": 3.05,
+                "topHum": 76.83,
+                "bottomHum": 65.82,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.59,
+                "bottomTemp": 2.9,
+                "topHum": 76.78,
+                "bottomHum": 65.82,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.81,
+                "bottomTemp": 2.81,
+                "topHum": 77.11,
+                "bottomHum": 65.81,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.94,
+                "bottomTemp": 2.64,
+                "topHum": 77.54,
+                "bottomHum": 65.75,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.21,
+                "bottomTemp": 2.35,
+                "topHum": 77.94,
+                "bottomHum": 65.82,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.35,
+                "bottomTemp": 2.08,
+                "topHum": 77.9,
+                "bottomHum": 65.42,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.66,
+                "bottomTemp": 1.9,
+                "topHum": 78.36,
+                "bottomHum": 65.41,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.1,
+                "bottomTemp": 1.59,
+                "topHum": 77.85,
+                "bottomHum": 65.23,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.3,
+                "bottomTemp": 1.43,
+                "topHum": 77.56,
+                "bottomHum": 64.86,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.93,
+                "bottomTemp": 1.98,
+                "topHum": 77.91,
+                "bottomHum": 69.48,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.76,
+                "bottomTemp": 3.23,
+                "topHum": 74.81,
+                "bottomHum": 70.2,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.77,
+                "bottomTemp": 2.93,
+                "topHum": 77.94,
+                "bottomHum": 72.88,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.58,
+                "bottomTemp": 3.74,
+                "topHum": 77.74,
+                "bottomHum": 68.9,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.57,
+                "bottomTemp": 3.7,
+                "topHum": 77.18,
+                "bottomHum": 67.76,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.86,
+                "bottomTemp": 3.64,
+                "topHum": 77.49,
+                "bottomHum": 67.03,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.27,
+                "bottomTemp": 3.27,
+                "topHum": 66.49,
+                "bottomHum": 66.49,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 362,
+            "mac": "AC233FA018F8",
+            "data": {
+                "id": 2998001,
+                "temp": 3.27,
+                "hum": 66.49,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 166,
+        "depart": "某科室",
+        "name": "1#（下）样本留存（HIV）",
+        "tempTop": -20,
+        "tempBottom": -25,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": -20.91,
+                "bottomTemp": -23.68,
+                "topHum": 78.34,
+                "bottomHum": 72.24,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -12.59,
+                "bottomTemp": -15.72,
+                "topHum": 79.88,
+                "bottomHum": 78.35,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -10.35,
+                "bottomTemp": -15.89,
+                "topHum": 81.02,
+                "bottomHum": 73.16,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -21.89,
+                "bottomTemp": -23.97,
+                "topHum": 72.86,
+                "bottomHum": 72.13,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -14.38,
+                "bottomTemp": -18.4,
+                "topHum": 79.1,
+                "bottomHum": 78.03,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -9.69,
+                "bottomTemp": -11.68,
+                "topHum": 81.84,
+                "bottomHum": 80.32,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -16.81,
+                "bottomTemp": -22.13,
+                "topHum": 73.76,
+                "bottomHum": 72.83,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -17.55,
+                "bottomTemp": -24.08,
+                "topHum": 78.32,
+                "bottomHum": 72.47,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -11.22,
+                "bottomTemp": -13.75,
+                "topHum": 81.06,
+                "bottomHum": 79.38,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -16.4,
+                "bottomTemp": -22.19,
+                "topHum": 73.66,
+                "bottomHum": 72.84,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -18.93,
+                "bottomTemp": -24.17,
+                "topHum": 78.29,
+                "bottomHum": 72.45,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -11.13,
+                "bottomTemp": -13.51,
+                "topHum": 76.43,
+                "bottomHum": 74.91,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -9.25,
+                "bottomTemp": -17.56,
+                "topHum": 78.32,
+                "bottomHum": 70.87,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.04,
+                "bottomTemp": -23.28,
+                "topHum": 71.79,
+                "bottomHum": 69.76,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -13.05,
+                "bottomTemp": -16.58,
+                "topHum": 77.16,
+                "bottomHum": 75.95,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -10.67,
+                "bottomTemp": -10.67,
+                "topHum": 78.3,
+                "bottomHum": 78.3,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 360,
+            "mac": "AC233FA018DD",
+            "data": {
+                "id": 2883807,
+                "temp": -19.95,
+                "hum": 68.6,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 165,
+        "depart": "某科室",
+        "name": "2#（上）血凝试剂",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 2.97,
+                "bottomTemp": 0.2,
+                "topHum": 88.66,
+                "bottomHum": 69.65,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.51,
+                "bottomTemp": -0.49,
+                "topHum": 96.24,
+                "bottomHum": 56.45,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.79,
+                "bottomTemp": 3.78,
+                "topHum": 96.63,
+                "bottomHum": 86.13,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.12,
+                "bottomTemp": -0.8,
+                "topHum": 87.26,
+                "bottomHum": 58.79,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.97,
+                "bottomTemp": -1.24,
+                "topHum": 87.45,
+                "bottomHum": 61.27,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.29,
+                "bottomTemp": 3.48,
+                "topHum": 88.23,
+                "bottomHum": 78.27,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.88,
+                "bottomTemp": -0.89,
+                "topHum": 90.41,
+                "bottomHum": 63.56,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.11,
+                "bottomTemp": 0.16,
+                "topHum": 69.11,
+                "bottomHum": 67.71,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.3,
+                "bottomTemp": 1.72,
+                "topHum": 90.87,
+                "bottomHum": 77.87,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.89,
+                "bottomTemp": 3.18,
+                "topHum": 97.12,
+                "bottomHum": 87.55,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.04,
+                "bottomTemp": -0.54,
+                "topHum": 89.56,
+                "bottomHum": 64.66,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.68,
+                "bottomTemp": 0.37,
+                "topHum": 87.79,
+                "bottomHum": 75.24,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.2,
+                "bottomTemp": 1.03,
+                "topHum": 93.25,
+                "bottomHum": 83.82,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.8,
+                "bottomTemp": 3.33,
+                "topHum": 96.99,
+                "bottomHum": 90.91,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.44,
+                "bottomTemp": -0.91,
+                "topHum": 90.7,
+                "bottomHum": 63.82,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 358,
+            "mac": "AC233FA018D0",
+            "data": {
+                "id": 2883825,
+                "temp": 1.97,
+                "hum": 72.66,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 164,
+        "depart": "某科室",
+        "name": "18#库房临检试剂",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 6.98,
+                "bottomTemp": 6.34,
+                "topHum": 83.87,
+                "bottomHum": 81.99,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.69,
+                "bottomTemp": 4.49,
+                "topHum": 79.42,
+                "bottomHum": 74.32,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.3,
+                "bottomTemp": 4.54,
+                "topHum": 77.48,
+                "bottomHum": 74.79,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.58,
+                "bottomTemp": 8,
+                "topHum": 86.4,
+                "bottomHum": 86.06,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.33,
+                "bottomTemp": 6.85,
+                "topHum": 84.93,
+                "bottomHum": 83.46,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.17,
+                "bottomTemp": 5.33,
+                "topHum": 81.58,
+                "bottomHum": 77.91,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.44,
+                "bottomTemp": 4.3,
+                "topHum": 74.59,
+                "bottomHum": 73.17,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.56,
+                "bottomTemp": 6.79,
+                "topHum": 86.91,
+                "bottomHum": 78.67,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 9.2,
+                "bottomTemp": 8.69,
+                "topHum": 93.12,
+                "bottomHum": 87.59,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.18,
+                "bottomTemp": 7.88,
+                "topHum": 86.08,
+                "bottomHum": 84.77,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.56,
+                "bottomTemp": 7.46,
+                "topHum": 90.98,
+                "bottomHum": 83.37,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.15,
+                "bottomTemp": 6.95,
+                "topHum": 82.15,
+                "bottomHum": 81.85,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.61,
+                "bottomTemp": 6.28,
+                "topHum": 80.6,
+                "bottomHum": 79.78,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5,
+                "bottomTemp": 4.49,
+                "topHum": 77.17,
+                "bottomHum": 73.61,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.97,
+                "bottomTemp": 3.93,
+                "topHum": 73.28,
+                "bottomHum": 72.97,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 357,
+            "mac": "AC233FA018C3",
+            "data": {
+                "id": 2883839,
+                "temp": 6.51,
+                "hum": 82.6,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 162,
+        "depart": "某科室",
+        "name": "16#库房（两对半）",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 6.98,
+                "bottomTemp": 4.69,
+                "topHum": 61.45,
+                "bottomHum": 55.6,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.47,
+                "bottomTemp": 0.15,
+                "topHum": 60.75,
+                "bottomHum": 53.32,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.79,
+                "bottomTemp": 2.03,
+                "topHum": 60.75,
+                "bottomHum": 53.7,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.16,
+                "bottomTemp": 2.57,
+                "topHum": 61.98,
+                "bottomHum": 58.36,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.18,
+                "bottomTemp": 1.02,
+                "topHum": 60.99,
+                "bottomHum": 53.32,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.89,
+                "bottomTemp": 4.22,
+                "topHum": 61.51,
+                "bottomHum": 59.98,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.01,
+                "bottomTemp": 0.47,
+                "topHum": 55.24,
+                "bottomHum": 52.93,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.95,
+                "bottomTemp": 5.72,
+                "topHum": 61.57,
+                "bottomHum": 60.75,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.62,
+                "bottomTemp": 1.6,
+                "topHum": 58.04,
+                "bottomHum": 53.4,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.07,
+                "bottomTemp": 6.08,
+                "topHum": 62.31,
+                "bottomHum": 61.91,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.99,
+                "bottomTemp": 0.82,
+                "topHum": 59.32,
+                "bottomHum": 53.29,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.58,
+                "bottomTemp": 3.77,
+                "topHum": 60.74,
+                "bottomHum": 54.88,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.26,
+                "bottomTemp": 0.18,
+                "topHum": 58.41,
+                "bottomHum": 52.94,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.65,
+                "bottomTemp": 3.26,
+                "topHum": 59.92,
+                "bottomHum": 54.09,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.65,
+                "bottomTemp": -0.06,
+                "topHum": 59.23,
+                "bottomHum": 52.5,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 355,
+            "mac": "AC233FA018FE",
+            "data": {
+                "id": 2883815,
+                "temp": 5.56,
+                "hum": 72.04,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 161,
+        "depart": "某科室",
+        "name": "15#库房免疫试剂",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 18.01,
+                "bottomTemp": 14.2,
+                "topHum": 99.38,
+                "bottomHum": 90.39,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 14.35,
+                "bottomTemp": 13.98,
+                "topHum": 90.01,
+                "bottomHum": 89.58,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.91,
+                "bottomTemp": 13.64,
+                "topHum": 90.13,
+                "bottomHum": 89.3,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.51,
+                "bottomTemp": 13.45,
+                "topHum": 88.8,
+                "bottomHum": 88.48,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.37,
+                "bottomTemp": 13.33,
+                "topHum": 88.1,
+                "bottomHum": 88.06,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.36,
+                "bottomTemp": 13.32,
+                "topHum": 89.1,
+                "bottomHum": 88.49,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.31,
+                "bottomTemp": 13.25,
+                "topHum": 88.6,
+                "bottomHum": 88.09,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.31,
+                "bottomTemp": 13.21,
+                "topHum": 89.29,
+                "bottomHum": 88.85,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.51,
+                "bottomTemp": 13.45,
+                "topHum": 88.54,
+                "bottomHum": 88.31,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.78,
+                "bottomTemp": 13.54,
+                "topHum": 89.7,
+                "bottomHum": 88.48,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.98,
+                "bottomTemp": 13.93,
+                "topHum": 88.73,
+                "bottomHum": 88.42,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 14.05,
+                "bottomTemp": 14.01,
+                "topHum": 88.42,
+                "bottomHum": 86.53,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 14.14,
+                "bottomTemp": 14.08,
+                "topHum": 86.19,
+                "bottomHum": 81.45,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 14.03,
+                "bottomTemp": 12.2,
+                "topHum": 78.34,
+                "bottomHum": 77.96,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 12.34,
+                "bottomTemp": 11.01,
+                "topHum": 75.28,
+                "bottomHum": 73.71,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 354,
+            "mac": "AC233FA018FD",
+            "data": {
+                "id": 2883838,
+                "temp": 5.38,
+                "hum": 49.03,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 177,
+        "depart": "某科室",
+        "name": "2#（下）质控品",
+        "tempTop": -20,
+        "tempBottom": -25,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": -20.86,
+                "bottomTemp": -24.58,
+                "topHum": 84.97,
+                "bottomHum": 81.37,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -19.72,
+                "bottomTemp": -24.19,
+                "topHum": 84.15,
+                "bottomHum": 82.36,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -20.2,
+                "bottomTemp": -20.63,
+                "topHum": 85.32,
+                "bottomHum": 83.36,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -19.92,
+                "bottomTemp": -23.85,
+                "topHum": 85.36,
+                "bottomHum": 82.91,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -21.42,
+                "bottomTemp": -23.1,
+                "topHum": 83.38,
+                "bottomHum": 82.98,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -19.4,
+                "bottomTemp": -22.19,
+                "topHum": 85.71,
+                "bottomHum": 82.58,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -19.09,
+                "bottomTemp": -22.62,
+                "topHum": 85.81,
+                "bottomHum": 83.75,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.29,
+                "bottomTemp": -22.92,
+                "topHum": 84.36,
+                "bottomHum": 82.22,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -18.72,
+                "bottomTemp": -25.06,
+                "topHum": 85.75,
+                "bottomHum": 82.25,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -20.97,
+                "bottomTemp": -20.99,
+                "topHum": 84.49,
+                "bottomHum": 84.19,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -20.53,
+                "bottomTemp": -24.71,
+                "topHum": 84.53,
+                "bottomHum": 82.25,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.97,
+                "bottomTemp": -23.53,
+                "topHum": 82.97,
+                "bottomHum": 82.93,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -19.51,
+                "bottomTemp": -25.19,
+                "topHum": 85.01,
+                "bottomHum": 81.89,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -21.56,
+                "bottomTemp": -21.61,
+                "topHum": 84.03,
+                "bottomHum": 83.78,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -19.69,
+                "bottomTemp": -24.13,
+                "topHum": 84.95,
+                "bottomHum": 82.55,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 359,
+            "mac": "AC233FA01909",
+            "data": {
+                "id": 2883803,
+                "temp": -22.23,
+                "hum": 82.62,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 178,
+        "depart": "某科室",
+        "name": "3#免疫室试剂",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 2.35,
+                "bottomTemp": 1.35,
+                "topHum": 60.81,
+                "bottomHum": 55.34,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.77,
+                "bottomTemp": 0.65,
+                "topHum": 61.85,
+                "bottomHum": 55.67,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.31,
+                "bottomTemp": 0.12,
+                "topHum": 61.91,
+                "bottomHum": 56.83,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.88,
+                "bottomTemp": -0.07,
+                "topHum": 61.56,
+                "bottomHum": 56.87,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.53,
+                "bottomTemp": 0,
+                "topHum": 60.77,
+                "bottomHum": 56.83,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.13,
+                "bottomTemp": 0.07,
+                "topHum": 57.39,
+                "bottomHum": 57.08,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.06,
+                "bottomTemp": 0.12,
+                "topHum": 57.19,
+                "bottomHum": 56.44,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.1,
+                "bottomTemp": 0.2,
+                "topHum": 57.07,
+                "bottomHum": 56.69,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 13.51,
+                "bottomTemp": 0.64,
+                "topHum": 95.55,
+                "bottomHum": 61.89,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.64,
+                "bottomTemp": 0.88,
+                "topHum": 61.15,
+                "bottomHum": 59.99,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.51,
+                "bottomTemp": 0.54,
+                "topHum": 59.97,
+                "bottomHum": 58.48,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.01,
+                "bottomTemp": 1.29,
+                "topHum": 91.69,
+                "bottomHum": 59.53,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.91,
+                "bottomTemp": 1.56,
+                "topHum": 59.14,
+                "bottomHum": 57.84,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.5,
+                "bottomTemp": 1.59,
+                "topHum": 59.3,
+                "bottomHum": 56.44,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.49,
+                "bottomTemp": 0.43,
+                "topHum": 60.51,
+                "bottomHum": 60.18,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 371,
+            "mac": "AC233FA018B6",
+            "data": {
+                "id": 2883797,
+                "temp": 5.85,
+                "hum": 61.1,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 179,
+        "depart": "某科室",
+        "name": "4#生化试剂",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 7.89,
+                "bottomTemp": 5.36,
+                "topHum": 77.13,
+                "bottomHum": 68.96,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.07,
+                "bottomTemp": 5.82,
+                "topHum": 77.52,
+                "bottomHum": 50.59,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 5.7,
+                "bottomTemp": 5.39,
+                "topHum": 70.87,
+                "bottomHum": 49.8,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.84,
+                "bottomTemp": 6.1,
+                "topHum": 75.29,
+                "bottomHum": 72.44,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.45,
+                "bottomTemp": 4.94,
+                "topHum": 62.7,
+                "bottomHum": 49,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.37,
+                "bottomTemp": 4.51,
+                "topHum": 73.66,
+                "bottomHum": 51.68,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.89,
+                "bottomTemp": 6.8,
+                "topHum": 74.34,
+                "bottomHum": 56.48,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.06,
+                "bottomTemp": 4.53,
+                "topHum": 57.47,
+                "bottomHum": 53.69,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 9.58,
+                "bottomTemp": 7.21,
+                "topHum": 75.63,
+                "bottomHum": 74.67,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 10.74,
+                "bottomTemp": 6.16,
+                "topHum": 91.8,
+                "bottomHum": 63.42,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.05,
+                "bottomTemp": 5.88,
+                "topHum": 71.58,
+                "bottomHum": 57.21,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 7.6,
+                "bottomTemp": 4.28,
+                "topHum": 77.13,
+                "bottomHum": 56.41,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.35,
+                "bottomTemp": 6.48,
+                "topHum": 72.65,
+                "bottomHum": 65.66,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 8.85,
+                "bottomTemp": 4.63,
+                "topHum": 79.11,
+                "bottomHum": 51.73,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 6.17,
+                "bottomTemp": 5.25,
+                "topHum": 70.98,
+                "bottomHum": 53.19,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 370,
+            "mac": "AC233FA018B3",
+            "data": {
+                "id": 2883808,
+                "temp": 5.77,
+                "hum": 73.42,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 180,
+        "depart": "某科室",
+        "name": "5#输血科样本",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 3.48,
+                "bottomTemp": -0.32,
+                "topHum": 74.57,
+                "bottomHum": 65.37,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.79,
+                "bottomTemp": 0.24,
+                "topHum": 87.3,
+                "bottomHum": 58.71,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.64,
+                "bottomTemp": 2.43,
+                "topHum": 83.48,
+                "bottomHum": 67.37,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.09,
+                "bottomTemp": 0.47,
+                "topHum": 89.25,
+                "bottomHum": 72.64,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3,
+                "bottomTemp": -0.18,
+                "topHum": 84.15,
+                "bottomHum": 57.93,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.74,
+                "bottomTemp": 1.15,
+                "topHum": 78.45,
+                "bottomHum": 64.21,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.26,
+                "bottomTemp": -0.54,
+                "topHum": 90.35,
+                "bottomHum": 57.88,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.4,
+                "bottomTemp": -0.45,
+                "topHum": 95.13,
+                "bottomHum": 76.78,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.7,
+                "bottomTemp": 0.59,
+                "topHum": 90.1,
+                "bottomHum": 66.43,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.93,
+                "bottomTemp": 2.47,
+                "topHum": 84.58,
+                "bottomHum": 72.84,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.01,
+                "bottomTemp": 0.14,
+                "topHum": 89.01,
+                "bottomHum": 67.8,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.02,
+                "bottomTemp": 0.18,
+                "topHum": 83.42,
+                "bottomHum": 59.56,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.91,
+                "bottomTemp": 1.16,
+                "topHum": 74.09,
+                "bottomHum": 65.62,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.47,
+                "bottomTemp": -0.27,
+                "topHum": 90.4,
+                "bottomHum": 57.67,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.49,
+                "bottomTemp": 1.2,
+                "topHum": 84.58,
+                "bottomHum": 61.09,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 365,
+            "mac": "AC233FA018D7",
+            "data": {
+                "id": 2883828,
+                "temp": 2.96,
+                "hum": 90.35,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 181,
+        "depart": "某科室",
+        "name": "6#输血科试剂",
+        "tempTop": 8,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 2.92,
+                "bottomTemp": 2.24,
+                "topHum": 56.72,
+                "bottomHum": 50.7,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.36,
+                "bottomTemp": 0.89,
+                "topHum": 43.63,
+                "bottomHum": 35.37,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.41,
+                "bottomTemp": 2.24,
+                "topHum": 54.94,
+                "bottomHum": 35.59,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.93,
+                "bottomTemp": 2.07,
+                "topHum": 55.65,
+                "bottomHum": 50.02,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.29,
+                "bottomTemp": 1.03,
+                "topHum": 42.73,
+                "bottomHum": 35.35,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.45,
+                "bottomTemp": 2.13,
+                "topHum": 54.34,
+                "bottomHum": 36.09,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.79,
+                "bottomTemp": 2,
+                "topHum": 55.65,
+                "bottomHum": 49.65,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.4,
+                "bottomTemp": 0.97,
+                "topHum": 43.08,
+                "bottomHum": 34.63,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.44,
+                "bottomTemp": 2.33,
+                "topHum": 56.89,
+                "bottomHum": 36.08,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.77,
+                "bottomTemp": 1.82,
+                "topHum": 54.06,
+                "bottomHum": 48.23,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.22,
+                "bottomTemp": 1.2,
+                "topHum": 40.06,
+                "bottomHum": 32.23,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.48,
+                "bottomTemp": 2.92,
+                "topHum": 58.49,
+                "bottomHum": 41.22,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 2.54,
+                "bottomTemp": 1.75,
+                "topHum": 52.9,
+                "bottomHum": 45.7,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 1.74,
+                "bottomTemp": 1.06,
+                "topHum": 38.35,
+                "bottomHum": 32.61,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 3.38,
+                "bottomTemp": 3.08,
+                "topHum": 56.43,
+                "bottomHum": 46.19,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 372,
+            "mac": "AC233FA018B4",
+            "data": {
+                "id": 2883820,
+                "temp": 2.37,
+                "hum": 51.34,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 182,
+        "depart": "某科室",
+        "name": "7#冰冻血浆",
+        "tempTop": -20,
+        "tempBottom": -25,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": -23.6,
+                "bottomTemp": -23.67,
+                "topHum": 65.08,
+                "bottomHum": 65.06,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -23.54,
+                "bottomTemp": -23.54,
+                "topHum": 65.15,
+                "bottomHum": 65.06,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -23.53,
+                "bottomTemp": -23.53,
+                "topHum": 65.12,
+                "bottomHum": 65.1,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -23.51,
+                "bottomTemp": -23.51,
+                "topHum": 65.1,
+                "bottomHum": 65.07,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -23.53,
+                "bottomTemp": -23.56,
+                "topHum": 65.12,
+                "bottomHum": 65.04,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -23.57,
+                "bottomTemp": -23.61,
+                "topHum": 65.03,
+                "bottomHum": 65.02,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -23.63,
+                "bottomTemp": -23.65,
+                "topHum": 65,
+                "bottomHum": 64.97,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.98,
+                "bottomTemp": -23.51,
+                "topHum": 65.45,
+                "bottomHum": 65.31,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.87,
+                "bottomTemp": -22.91,
+                "topHum": 65.53,
+                "bottomHum": 65.42,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.82,
+                "bottomTemp": -22.84,
+                "topHum": 65.54,
+                "bottomHum": 65.43,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.81,
+                "bottomTemp": -22.81,
+                "topHum": 65.57,
+                "bottomHum": 65.51,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.73,
+                "bottomTemp": -22.73,
+                "topHum": 65.4,
+                "bottomHum": 65.38,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.57,
+                "bottomTemp": -22.64,
+                "topHum": 65.45,
+                "bottomHum": 65.39,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.48,
+                "bottomTemp": -22.53,
+                "topHum": 65.41,
+                "bottomHum": 65.4,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": -22.47,
+                "bottomTemp": -22.53,
+                "topHum": 65.5,
+                "bottomHum": 65.4,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 367,
+            "mac": "AC233FA018BA",
+            "data": {
+                "id": 2883840,
+                "temp": -25.4,
+                "hum": 63.39,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    },
+    {
+        "id": 184,
+        "depart": "某科室",
+        "name": "8#输血科血液贮存",
+        "tempTop": 6,
+        "tempBottom": 2,
+        "humTop": 100,
+        "humBottom": 0,
+        "tempAdjust": 0,
+        "humAdjust": 0,
+        "hourSummary": [
+            {
+                "topTemp": 4.55,
+                "bottomTemp": 4.46,
+                "topHum": 69.03,
+                "bottomHum": 65.43,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.23,
+                "bottomTemp": 4.08,
+                "topHum": 62.43,
+                "bottomHum": 61.97,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.1,
+                "bottomTemp": 4.03,
+                "topHum": 80.44,
+                "bottomHum": 76.41,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.31,
+                "bottomTemp": 4.22,
+                "topHum": 82.62,
+                "bottomHum": 81.5,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.54,
+                "bottomTemp": 4.14,
+                "topHum": 81.79,
+                "bottomHum": 80.72,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.56,
+                "bottomTemp": 4.3,
+                "topHum": 82.67,
+                "bottomHum": 78.57,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.56,
+                "bottomTemp": 4.37,
+                "topHum": 74,
+                "bottomHum": 64.47,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.61,
+                "bottomTemp": 4.27,
+                "topHum": 66.49,
+                "bottomHum": 62.96,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.68,
+                "bottomTemp": 4.66,
+                "topHum": 75.37,
+                "bottomHum": 71.54,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.65,
+                "bottomTemp": 4.61,
+                "topHum": 77.44,
+                "bottomHum": 76.98,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.65,
+                "bottomTemp": 4.65,
+                "topHum": 77.79,
+                "bottomHum": 76.94,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.63,
+                "bottomTemp": 4.62,
+                "topHum": 79.26,
+                "bottomHum": 77.99,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.31,
+                "bottomTemp": 4.03,
+                "topHum": 81.39,
+                "bottomHum": 68.6,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.66,
+                "bottomTemp": 4.45,
+                "topHum": 69.87,
+                "bottomHum": 64.35,
+                "__typename": "HourSummary"
+            },
+            {
+                "topTemp": 4.68,
+                "bottomTemp": 4.62,
+                "topHum": 76.29,
+                "bottomHum": 75.45,
+                "__typename": "HourSummary"
+            }
+        ],
+        "ibeacon": {
+            "id": 366,
+            "mac": "AC233FA018BB",
+            "data": {
+                "id": 2883826,
+                "temp": 4.52,
+                "hum": 70.02,
+                "__typename": "IbeaconData"
+            },
+            "__typename": "Ibeacon"
+        },
+        "__typename": "Device"
+    }
+
+
+]

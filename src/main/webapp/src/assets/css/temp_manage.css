@@ -1,0 +1,40 @@
+
+    .warning_wrap{
+      width:50%;
+      position: fixed;
+      top:0;
+      right:100px;
+      z-index:999;
+    }
+    
+    .notice_icon{
+      cursor: pointer;
+    }
+
+    .warning_title{
+      width:100%;
+      height:40px;
+      line-height:40px;
+      text-align: center;
+      background-color: #ed4014;;
+    }
+
+    .warning_title h2{
+      color:#fff;
+      font-weight:normal;
+    }
+
+    .warning_li{
+      margin:15px 0;
+      text-align: left;
+      list-style: none;
+      border-bottom:1px solid #ccc;
+    }
+
+    .warning_li>p:nth-of-type(2),.warning_li>p:nth-of-type(3){
+      padding-left:18px;
+    }
+
+    .warning_imp{
+      color:#ed4014
+    }
